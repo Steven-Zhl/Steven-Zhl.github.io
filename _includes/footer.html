@@ -1,0 +1,65 @@
+<section id="footer">
+    <ul class="icons">
+        {% if site.github_account %}
+        <li>
+            <a href="https://github.com/{{ site.github_account }}" class="icon brands fa-github">
+                <span class="label">Gtihub</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.twitter_account %}
+        <li>
+            <a href="https://twitter.com/{{ site.twitter_account }}" class="icon brands fa-twitter">
+                <span class="label">Twitter</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.facebook_account %}
+        <li>
+            <a href="https://facebook.com/{{ site.facebook_account }}" class="icon brands fa-facebook-f">
+                <span class="label">Facebook</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.instagram_account %}
+        <li>
+            <a href="https://www.instagram.com/{{site.instagram_account}}" class="icon brands fa-instagram">
+                <span class="label">Instagram</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.linkedin_account %}
+        <li>
+            <a href="https://linkedin.com/in/{{site.linkedin_account}}" class="icon brands fa-linkedin-in">
+                <span class="label">Linkedin</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.zhihu_account %}
+        <li>
+            <a href="https://www.zhihu.com/people/{{site.zhihu_account}}" class="icon brands fa-zhihu">
+                <span class="label">Zhihu</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.weibo_account %}
+        <li>
+            <a href="https://weibo.com/{{site.weibo_account}}" class="icon brands fa-weibo">
+                <span class="label">Weibo</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if site.email %}
+        <li>
+            <a title="{{ site.email }}" class="icon solid fa-envelope">
+                <span class="label">{{ site.email }}</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+    <p class="copyright">&copy; Untitled.
+        Design: <a href="http://html5up.net">HTML5 UP</a>.
+        Images: <a href="http://unsplash.com">Unsplash</a>.
+        Modify: <a href="https://github.com/Steven-Zhl">Steven-Zhl</a>.
+    </p>
+</section>

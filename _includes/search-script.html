@@ -1,0 +1,36 @@
+<script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    function onHeaderSearchChange() {
+        var searchInput = document.getElementById('header-search-input');
+        var resultsUl = document.getElementById('header-search-results-ul');
+        var resultsArticle = document.getElementById('header-search-results-article');
+        var sjs = SimpleJekyllSearch({
+            searchInput: searchInput,
+            resultsContainer: resultsUl,
+            json: '{{ site.baseurl }}/search.json',
+            searchResultTemplate: '<li><a href="{url}" title="{title}">[<time datetime="{date}">{date}</time>] - {title}</a></li>', // 文章列表模板
+            noResultsText: '<li>没有搜索到文章</li>', // 无搜索数据提示语
+            limit: '{{ site.simple-jekyll-search.results_limit }}', // 返回最大文章数
+            fuzzy: false // 是否模糊匹配
+        });
+        sjs.search(searchInput.value);
+        resultsArticle.style.display = 'block';
+    }
+
+    function onMenuSearchChange() {
+        var searchInput = document.getElementById('menu-search-input');
+        var resultsUl = document.getElementById('menu-search-results-ul');
+        var resultsSection = document.getElementById('menu-search-results-section');
+        var sjs = SimpleJekyllSearch({
+            searchInput: searchInput,
+            resultsContainer: resultsUl,
+            json: '{{ site.baseurl }}/search.json',
+            searchResultTemplate: '<li><a href="{url}" title="{title}">[<time datetime="{date}">{date}</time>] - {title}</a></li>', // 文章列表模板
+            noResultsText: '<li>没有搜索到文章</li>', // 无搜索数据提示语
+            limit: '{{ site.simple-jekyll-search.results_limit }}', // 返回最大文章数
+            fuzzy: false // 是否模糊匹配
+        });
+        sjs.search(searchInput.value);
+        resultsSection.style.display = 'block';
+    }
+</script>

@@ -1,0 +1,11 @@
+<head>
+    <title>{% if page.title!=null %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css" />
+    <link rel="icon" href="{{site.baseurl}}/images/favicon.ico" type="image/x-icon" />
+    {% if site.gitalk.enable %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    {% endif %}
+</head>

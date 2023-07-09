@@ -1,0 +1,112 @@
+{% if post %}
+<article class="post">
+    <header>
+        <div class="title">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2> <!-- 标题/title -->
+            <p>{{ post.subtitle }}</p> <!-- 副标题/subtitle -->
+        </div>
+        <div class="meta">
+            <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%m" }}</time>
+            {% if post.author and post.author != site.username %}
+            <span class="name">{{ post.author }}</span>
+            {% else %}
+            <a href="/about" class="author">
+                <span class="name">{{ site.username }}</span>
+                <img src="{{ site.baseurl }}/images/avatar.jpg"/>
+            </a>
+            {% endif %}
+        </div>
+    </header>
+    <a href="{{ post.url }}" class="image featured">
+        <img src="{% if post.cover %}{{ post.cover }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
+             alt="{{ post.title }}"/>
+    </a>
+    <div class="content"> <!-- 内容预览/Content Preview -->
+        {% if site.article_introduction_format=='post.excerpt' %}
+        {{ post.excerpt }}
+        {% else %}
+        {{ post.content | strip_html | truncatewords: 50 }}
+        {% endif %}
+    </div>
+    <footer>
+        <ul class="actions">
+            <li><a href="{{ post.url }}" class="button large">
+                {% if site.localization=='CN' %}继续阅读
+                {% else if site.localization=='TC' %}繼續閱讀
+                {% else %}Continue Reading{% endif %}
+            </a></li>
+
+        </ul>
+
+        <ul class="stats">
+            <li>
+                <i class="icon solid fa-tag"
+                   title="{% if site.localization=='CN' %}标签{% else if site.localization=='TC' %}標簽{% else %}Tags{% endif %}"></i>
+            </li>
+            <li>
+                {% for tag in post.tags %}
+                <a href="/tag/?tag={{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+            </li>
+            <li>
+                <i class="icon solid fa-bars"
+                   title="{% if site.localization=='CN' %}类别{% else if site.localization=='TC' %}類別{% else %}Categories{% endif %}"></i>
+            </li>
+            <li>
+                {% for category in post.categories %}
+                <a href="/category/?category={{ category | slugify }}">
+                    {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
+                {% endfor %}
+            </li>
+        </ul>
+    </footer>
+</article>
+{% else %}
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{ page.title }}</h2>
+            <p>{{ page.subtitle }}</p>
+        </div>
+        <div class="meta">
+            <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%Y-%m-%d %H:%m" }}</time>
+            {% if page.author and page.author != site.username %}
+            <span class="name">{{ page.author }}</span>
+            {% else %}
+            <a href="/about" class="author">
+                <span class="name">{{ site.username }}</span>
+                <img src="{{ site.baseurl }}/images/avatar.jpg"/>
+            </a>
+            {% endif %}
+        </div>
+    </header>
+    <span class="image featured">
+        <img src="{% if page.cover %}{{ page.cover }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
+             alt="{{ page.title }}"/>
+    </span>
+    {{ page.content }}
+    <footer>
+        <ul class="stats">
+            <li>
+                <i class="icon solid fa-tag"
+                   title="{% if site.localization=='CN' %}标签{% else if site.localization=='TC' %}標簽{% else %}Tags{% endif %}"></i>
+            </li>
+            <li>
+                {% for tag in page.tag %}
+                <a href="/tag/?tag={{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+            </li>
+            <li>
+                <i class="icon solid fa-bars"
+                   title="{% if site.localization=='CN' %}类别{% else if site.localization=='TC' %}類別{% else %}Categories{% endif %}"></i>
+            </li>
+            <li>
+                {% for category in page.category %}
+                <a href="/category/?category={{ category | slugify }}">
+                    {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
+                {% endfor %}
+            </li>
+        </ul>
+    </footer>
+</article>
+{% endif %}

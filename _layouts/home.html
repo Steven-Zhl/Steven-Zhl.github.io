@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+{% include head.html %}
+
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Header -->
+    {% include header.html %}
+    <!-- Menu -->
+    {% include menu.html article=true %}
+    <!-- Main -->
+    <div id="main">
+        {% if site.simple-jekyll-search.enable %}
+        {% include search-article.html %}
+        {% endif %}
+        <!-- 显示文章列表 -->
+        {% for post in paginator.posts %}
+        {% include article.html post=post %}
+        {% endfor %}
+        <!-- Pagination -->
+        {% include pagination.html pagination=pagination%}
+    </div>
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <!-- Intro -->
+        {% include intro.html %}
+        <!-- Mini Posts -->
+        <section>
+            <div class="mini-posts">
+                {% for post in site.posts %}
+                {% if post.stickie == true %}
+                {% include mini-post.html %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Tags/Categories List -->
+        {% include tag-category-list.html %}
+        {% include blurb.html %}
+        {% include footer.html %}
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/util.js"></script>
+<script src="{{ site.baseurl }}/assets/js/main.js"></script>
+{% if site.simple-jekyll-search.enable %}
+{% include search-script.html %}
+{% endif %}
+</body>
+
+</html>

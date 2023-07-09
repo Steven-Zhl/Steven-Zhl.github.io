@@ -1,0 +1,11 @@
+<section class="blurb">
+    <h2>{% if site.localization=='CN' %}关于{% else if site.localization=='TC' %}關於{% else %}About{% endif %}</h2>
+    <p>{{ site.blurb }}</p>
+    <ul class="actions">
+        <li><a href="/about" class="button">
+            {% if site.localization=='CN' %}更多
+            {% else if site.localization=='TC' %}更多
+            {% else %}Learn More{% endif %}
+        </a></li>
+    </ul>
+</section>

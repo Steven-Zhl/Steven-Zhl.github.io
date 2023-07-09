@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="{{ site.lang }}">
+{% include head.html page=page %}
+
+<body class="single">
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Header -->
+    {% include header.html %}
+    <!-- Menu -->
+    {% include menu.html content=page.content %}
+    <!-- Main -->
+    <div id="main">
+        {% if site.simple-jekyll-search.enable %}
+        {% include search-article.html %}
+        {% endif %}
+        <!-- Post -->
+        {% include article.html %}
+    </div>
+    <!-- Gitalk -->
+    {% if site.gitalk.enable %}
+    <div id="gitalk-container"></div>
+    {% endif %}
+    <!-- Footer -->
+    {% include footer.html %}
+</div>
+<!-- Scripts -->
+<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/util.js"></script>
+<script src="{{ site.baseurl }}/assets/js/main.js"></script>
+{% if site.simple-jekyll-search.enable %}
+{% include search-script.html %}
+{% endif %}
+{% if site.gitalk.enable %}
+<script>
+    var gitalk = new Gitalk({
+        clientID: '{{ site.gitalk.clientID }}',
+        clientSecret: '{{ site.gitalk.clientSecret }}',
+        repo: '{{ site.gitalk.repo }}',
+        owner: '{{ site.gitalk.owner }}',
+        admin: ['{{ site.gitalk.owner }}'],
+        id: '{{ page.date | date: "%Y%m%d%H%M%S" }}',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+{% endif %}
+</body>
+
+</html>

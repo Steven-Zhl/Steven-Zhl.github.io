@@ -1,0 +1,58 @@
+<header id="header">
+    <h1>
+        <a href="/">{{ site.title }}</a>
+    </h1>
+    <nav class="links">
+        <ul>
+            <li>
+                <a href="/waiting">{% if site.localization=='CN'%}类别{% else if site.localization=='TC' %}類別{% else
+                    %}Categories{% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="/waiting">{% if site.localization=='CN'%}标签{% else if site.localization=='TC' %}標籤{% else
+                    %}Tags{% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="/waiting">{% if site.localization=='CN'%}归档{% else if site.localization=='TC' %}歸檔{% else
+                    %}Archive{% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="/about">{% if site.localization=='CN'%}关于{% else if site.localization=='TC' %}關于{% else
+                    %}About{% endif %}</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <!-- 个人主页选项 -->
+            <li class="profile">
+                <a class="image" href="/about">
+                    <img src="{{site.baseurl}}/images/avatar.jpg" width="50%"
+                         style="margin-left: 25%;margin-top: 15%;border-radius: 50%;">
+                </a>
+            </li>
+            {% if site.simple-jekyll-search.enable %}<!-- 搜索选项 -->
+            <li class="search">
+                <a class="fa-search" href="#search">
+                    {% if site.localization=='CN' or site.localization=='TC' %}搜索
+                    {% else %}Search{% endif %}
+                </a>
+                <form id="search">
+                    <input type="text" name="query" id="header-search-input" onfocus="onHeaderSearchChange()"
+                           placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}"/>
+                </form>
+            </li>
+            {% endif %}
+            <li class="menu"><!-- 菜单选项 -->
+                <a class="fa-bars" href="#menu">
+                    {% if site.localization=='CN'%}菜单
+                    {% else if site.localization=='TC' %}菜單
+                    {% else %}Menu{% endif %}
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

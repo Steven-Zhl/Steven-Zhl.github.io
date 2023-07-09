@@ -1,0 +1,77 @@
+<section>
+    <h3>{% if site.localization=='CN' %}统计信息{% else if site.localization=='TC' %}統計信息{% else %}Statistics{%
+        endif %}
+    </h3>
+    <ul class="posts">
+        <li>
+            <article>
+                <header>
+                    <h3>
+                        <i class="fa fa-tags">
+                            {% if site.localization=='CN' %}最近的标签 {% else if site.localization=='TC' %}最近的標簽
+                            {% else %}Recent Tags{% endif %}
+                        </i>
+                    </h3>
+                    {% for tag in site.tags | reverse | limit: 5 %}
+                    <a href="/tag/?tag={{ tag[0] | slugify }}">{{ tag[0] }}</a>
+                    {% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </header>
+            </article>
+        </li>
+    </ul>
+    <ul class="posts">
+        <li>
+            <article>
+                <header>
+                    <h3>
+                        <i class="fa fa-bars">
+                            {% if site.localization=='CN' %}最近的类别 {% else if site.localization=='TC' %}最近的類別
+                            {% else %}Recent Categories{% endif %}
+                        </i>
+                    </h3>
+                    {% for category in site.categories | reverse | limit: 5 %}
+                    <a href="/category/?category={{ category[0] | slugify }}">{{ category[0] }}</a>
+                    {% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </header>
+            </article>
+        </li>
+    </ul>
+    <ul class="posts">
+        <li>
+            <article>
+                <header>
+                    <h3>
+                        <i class="fa fa-tags">
+                            {% if site.localization=='CN' %}最多的标签 {% else if site.localization=='TC' %}最多的標簽
+                            {% else %}Most Tags{% endif %}
+                        </i>
+                    </h3>
+                    {% for tag in site.tags | sort: 'last' | reverse | limit: 5 %}
+                    <a href="/tag/?tag={{ tag[0] | slugify }}">{{ tag[0] }}</a>
+                    {% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </header>
+            </article>
+        </li>
+    </ul>
+    <ul class="posts">
+        <li>
+            <article>
+                <header>
+                    <h3>
+                        <i class="fa fa-tags">
+                            {% if site.localization=='CN' %}最多的类别 {% else if site.localization=='TC' %}最多的類別
+                            {% else %}Most Categories{% endif %}
+                        </i>
+                    </h3>
+                    {% for category in site.categories | sort: 'last' | reverse | limit: 5 %}
+                    <a href="/category/?category={{ category[0] | slugify }}">{{ category[0] }}</a>
+                    {% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </header>
+            </article>
+        </li>
+    </ul>
+</section>
