@@ -1,14 +1,16 @@
 # 基本配置/Basic settings
 title: Steven's Blog # 博客网站标题/Title of the blog
 intro: >- # 关于博客的简介/Introduction of the blog
-  这是我的博客。
+  It's my blog.
 blurb: >- # 关于你的简介/Introduction of yourself
   一个普普通通的大学生，成天做着奇思妙想的梦。
 baseurl: "" # 根目录，默认留空即可，但如果你的网站没有部署在根目录，则需要手动修改。/Root directory, leave it blank by default, but if your website is not deployed in the root directory, you need to modify it manually.
 username: Steven-Zhl # 你的博客署名。/Your blog author.
 markdown: kramdown # Markdown解析器/Markdown parser
+highlighter: rouge # 代码高亮/Code highlight
 kramdown:
   input: GFM # GFM: Github Flavored Markdown
+  syntax_highlighter: rouge # 代码高亮/Code highlight
 
 # 你的社交账号或联系方式，这些信息将会出现在博客的底部，没有的不填即可。
 # Your social account or contact information, which will appear at the bottom of the blog. If not, please leave it blank.
@@ -38,7 +40,7 @@ exclude: # Jekyll构建时应该被排除的文件/Files that should be excluded
   - vendor/ruby/
 # jekyll-paginate配置。/jekyll-paginate settings.
 paginate: 5 # 每页显示的文章数量/Number of articles displayed per page
-paginate_path: "/page:num/" # 分页的URL格式/Paging URL format
+paginate_path: "/page/num/" # 分页的URL格式/Paging URL format
 
 # 本项目的一些配置。/Some settings of this project.
 lang: zh-CN # ( <html lang=""> ) html元素的lang特性。/HTML element lang attribute.
@@ -58,7 +60,11 @@ gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改
 disqus: # 目前暂不支持disqus/Disqus is not supported yet.
   enable: false # Disqus
 
-# (Simple Jekyll Search)搜索功能配置/Search settings
-simple-jekyll-search:
-  enable: true # 是否启用搜索/Whether to enable search
-  results_limit: 5 # 搜索结果的显示上限/Display limit of search results
+# 其他插件配置/Other plugins settings
+simple-jekyll-search: # Simple Jekyll Search(搜索功能)
+  enable: true # 是否启用搜索功能/Whether to enable search function
+  result_limit: 10 # 搜索结果的显示上限/Display limit of search results
+mathjax: # MathJax(数学公式)
+  enable: true # 是否允许渲染数学公式/Whether to enable render formula
+jekyll-mermaid: # Jekyll Mermaid(绘图功能)
+  enable: true # 是否启用绘图功能/Whether to enable drawing function

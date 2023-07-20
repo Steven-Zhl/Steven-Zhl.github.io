@@ -4,8 +4,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css" />
     <link rel="icon" href="{{site.baseurl}}/images/favicon.ico" type="image/x-icon" />
-    {% if site.gitalk.enable %}
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax.css" />
+    {% if site.gitalk.enable and page.title %}
+    <!-- Gitalk -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    {% endif %}
+    {% if site.mathjax.enable and page.title %}
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        type="text/javascript"></script>
+    {% endif %}
+    {% if site.jekyll-mermaid.enable and page.title %}
+    <!-- Mermaid -->
+    <script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
     {% endif %}
 </head>

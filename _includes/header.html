@@ -5,18 +5,8 @@
     <nav class="links">
         <ul>
             <li>
-                <a href="/waiting">{% if site.localization=='CN'%}类别{% else if site.localization=='TC' %}類別{% else
-                    %}Categories{% endif %}
-                </a>
-            </li>
-            <li>
-                <a href="/waiting">{% if site.localization=='CN'%}标签{% else if site.localization=='TC' %}標籤{% else
-                    %}Tags{% endif %}
-                </a>
-            </li>
-            <li>
-                <a href="/waiting">{% if site.localization=='CN'%}归档{% else if site.localization=='TC' %}歸檔{% else
-                    %}Archive{% endif %}
+                <a href="/">{% if site.localization=='CN'%}首页{% else if site.localization=='TC' %}首頁{% else
+                    %}Home{% endif %}
                 </a>
             </li>
             <li>
@@ -31,7 +21,7 @@
             <li class="profile">
                 <a class="image" href="/about">
                     <img src="{{site.baseurl}}/images/avatar.jpg" width="50%"
-                         style="margin-left: 25%;margin-top: 15%;border-radius: 50%;">
+                        style="margin-left: 25%;margin-top: 15%;border-radius: 50%;">
                 </a>
             </li>
             {% if site.simple-jekyll-search.enable %}<!-- 搜索选项 -->
@@ -42,7 +32,7 @@
                 </a>
                 <form id="search">
                     <input type="text" name="query" id="header-search-input" onfocus="onHeaderSearchChange()"
-                           placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}"/>
+                        placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}" />
                 </form>
             </li>
             {% endif %}

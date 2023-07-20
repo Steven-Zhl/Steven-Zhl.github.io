@@ -1,11 +1,10 @@
-<!-- 边栏菜单 -->
 <section id="menu">
     {% if site.simple-jekyll-search.enable %}
     <!-- 搜索栏 -->
     <section>
         <form class="search" method="get" action="#search">
             <input type="text" name="query" id="menu-search-input" onfocus="onMenuSearchChange()"
-                   placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}"/>
+                placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}" />
         </form>
     </section>
     <section id="menu-search-results-section" style="display: none;"><!-- 搜索结果 -->
@@ -26,46 +25,6 @@
     <!-- Links -->
     <section>
         <ul class="links">
-            <li>
-                <a href="/waiting">
-                    <h3>{% if site.localization=='CN'%}类别{% else if site.localization=='TC' %}類別{% else
-                        %}Categories{% endif %}
-                    </h3>
-                    {% if site.localization=='CN' %}
-                    <p>按照类别筛选。</p>
-                    {% else if site.localization=='TC' %}
-                    <p>按照類別篩選。</p>
-                    {% else %}
-                    <p>Filter by category.</p>
-                    {% endif %}
-                </a>
-            </li>
-            <li>
-                <a href="/waiting">
-                    <h3>{% if site.localization=='CN'%}标签{% else if site.localization=='TC' %}標籤 {% else %}Tags{%
-                        endif %}
-                    </h3>
-                    {% if site.localization=='CN' %}
-                    <p>按照标签筛选。</p>
-                    {% else if site.localization=='TC' %}
-                    <p>按照標籤篩選。</p>
-                    {% else %}
-                    <p>Filter by tag.</p>
-                    {% endif %}
-                </a>
-            </li>
-            <li>
-                <a href="/waiting">
-                    <h3>{% if site.localization=='CN'%}归档 {% else if site.localization=='TC' %}歸檔 {% else
-                        %}Archive{% endif %}
-                    </h3>
-                    {% if site.localization=='CN' or site.localization=='TC' %}
-                    <p>我思故我在。</p>
-                    {% else %}
-                    <p>I think, therefore I am.</p>
-                    {% endif %}
-                </a>
-            </li>
             <li>
                 <a href="/about">
                     <h3>{% if site.localization=='CN'%}关于 {% else if site.localization=='TC' %}關于 {% else %}About{%
