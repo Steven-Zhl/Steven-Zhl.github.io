@@ -2723,7 +2723,7 @@ ul.posts article header > :last-child {
 
 /* Post */
 
-.post{
+.post {
     padding: 3em 3em 1em 3em;
     background: #ffffff;
     border: solid 1px rgba(160, 160, 160, 0.3);
@@ -3117,7 +3117,7 @@ body {
     height: 3.5em;
     left: 0;
     line-height: 3.5em;
-    position: fixed;
+    position: fixed !important;
     top: 0;
     width: 100%;
     z-index: 10000;
@@ -3632,10 +3632,11 @@ body.single #footer {
     margin-top: 0;
     padding-top: 0;
 }
-article.post p img{
-    height: auto; 
-    width: auto\9; 
-    width:100%;
+
+article.post p img {
+    height: auto;
+    width: auto \9;
+    width: 100%;
 }
 
 body.is-menu-visible #menu {
