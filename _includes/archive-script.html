@@ -1,0 +1,55 @@
+<script>
+    function selectChange() {
+        const categoryElem = document.getElementById("category_selector");
+        category = categoryElem.options[categoryElem.selectedIndex].value;
+        const tagElem = document.getElementById("tag_selector");
+        tag = tagElem.options[tagElem.selectedIndex].value;
+        const articleList = document.getElementById("article-list");
+        for (let i = 0; i < articleList.children.length; i++) {
+            const article = articleList.children[i];
+            if (category === "all") {
+                if (tag === "all") {
+                    article.style.display = "block";
+                } else {
+                    if (article.getAttribute("tag").indexOf(tag) !== -1) {
+                        article.style.display = "block";
+                    } else {
+                        article.style.display = "none";
+                    }
+                }
+            } else {
+                if (tag === "all") {
+                    if (article.getAttribute("category").indexOf(category) !== -1) {
+                        article.style.display = "block";
+                    } else {
+                        article.style.display = "none";
+                    }
+                } else {
+                    if (article.getAttribute("category").indexOf(category) !== -1 &&
+                        article.getAttribute("tag").indexOf(tag) !== -1) {
+                        article.style.display = "block";
+                    } else {
+                        article.style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+</script>
+<script>
+    const url = window.location.href;
+    if (url.includes("?")) {
+        const keyword = url.split("?")[1].split("=")[0];
+        const value = url.split("?")[1].split("=")[1];
+        if (keyword === "category") {
+            const categoryElem = document.getElementById("category_selector");
+            categoryElem.value = decodeURI(value);
+            selectChange();
+        } else if (keyword === "tag") {
+            const tagElem = document.getElementById("tag_selector");
+            tagElem.value = decodeURI(value);
+            selectChange();
+        }
+    }
+
+</script>

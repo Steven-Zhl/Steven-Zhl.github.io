@@ -1,28 +1,19 @@
 <ul class="actions pagination">
     <li>
         <a href="{% if paginator.previous_page==1 %}/{% else %}/page/{{ paginator.previous_page }}{% endif %}"
-            class="{% if paginator.previous_page %}button large previous{% else %}disabled button large previous{% endif %}">
-            {% if site.localization=='CN'%}上一页{% else if site.localization=='TC' %}上一頁{% else %}Previous Page{% endif %}
+           class="{% if paginator.previous_page %}button large previous{% else %}disabled button large previous{% endif %}">
+            {{ site.data.locales[site.localization].previous-page }}
         </a>
     </li>
-    {% if site.localization=='CN'%}
-    {% assign page_quantifier = '页' %}
-    {% assign post_quantifier = '篇' %}
-    {% else if site.localization=='TC' %}
-    {% assign page_quantifier = '頁'%}
-    {% assign post_quantifier = '篇' %}
-    {% else %}
-    {% assign page_quantifier = 'Page'%}
-    {% assign post_quantifier = 'Post' %}
-    {% endif %}
+    {% assign page_quantifier = site.data.locales[site.localization].page_quantifier %}
+    {% assign post_quantifier = site.data.locales[site.localization].post_quantifier %}
     <li>
         <p class="button large">{{ paginator.page }} / {{ paginator.total_pages }}{{ page_quantifier}}</p>
     </li>
     <li>
         <a href="/page/{{ paginator.next_page }}"
-            class="{% if paginator.next_page %}button large previous{% else %}disabled button large previous{% endif %}">
-            {% if site.localization=='CN'%}下一页{% else if site.localization=='TC' %}下一頁{% else %}Next Page{% endif %}
+           class="{% if paginator.next_page %}button large previous{% else %}disabled button large previous{% endif %}">
+            {{ site.data.locales[site.localization].next-page }}
         </a>
     </li>
-
 </ul>

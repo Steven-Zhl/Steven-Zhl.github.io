@@ -9,13 +9,14 @@ username: Steven-Zhl # 你的博客署名。/Your blog author.
 markdown: kramdown # Markdown解析器/Markdown parser
 highlighter: rouge # 代码高亮/Code highlight
 kramdown:
-  input: GFM # GFM: Github Flavored Markdown
+  input: GFM # GFM: GitHub Flavored Markdown
   syntax_highlighter: rouge # 代码高亮/Code highlight
+timezone: Asia/Shanghai # 时区/Timezone
 
 # 你的社交账号或联系方式，这些信息将会出现在博客的底部，没有的不填即可。
 # Your social account or contact information, which will appear at the bottom of the blog. If not, please leave it blank.
 email: StevenZhl1001@gmail.com # 邮箱/Email
-github_account: Steven-Zhl # Github账号/Github account
+github_account: Steven-Zhl # GitHub账号/GitHub account
 twitter_account: # Twitter账号/Twitter account
 facebook_account: # Facebook账号/Facebook account
 instagram_account: # Instagram账号/Instagram account
@@ -30,6 +31,7 @@ plugins:
 exclude: # Jekyll构建时应该被排除的文件/Files that should be excluded when Jekyll is built
   - .sass-cache/
   - .jekyll-cache/
+  - _drafts
   - gemfiles/
   - Gemfile
   - Gemfile.lock
@@ -43,12 +45,19 @@ paginate: 5 # 每页显示的文章数量/Number of articles displayed per page
 paginate_path: "/page/num/" # 分页的URL格式/Paging URL format
 
 # 本项目的一些配置。/Some settings of this project.
-lang: zh-CN # ( <html lang=""> ) html元素的lang特性。/HTML element lang attribute.
-localization: CN # 本地化显示，可选项：EN(英文), CN(简体中文), TC(繁体中文), 其他缺省为英文。/Localization display, optional: EN (English), CN (Simplified Chinese), TC (Traditional Chinese), other defaults to English.
+lang: zh-Hans # ( <html lang=""> ) html元素的lang特性。/HTML element lang attribute.
+localization: zh-Hans # 本地化显示，可选项：en(英文), zh-Hans(简体中文), zh-Hant(繁体中文)。/Localization display, optional: en (English), zh-Hans (Simplified Chinese), zh-Hant (Traditional Chinese).
 # 文章简介的样式，如果你喜欢在每篇文章前写一个“blockquote”作为引言(> XXX)，建议使用这种样式，否则建议用“"post.content | strip_html | truncatewords: 50"”
 # The style of the article introduction, if you like to write a "blockquote" as a quotation before each article (> XXX), it is recommended to use this style, otherwise it is recommended to use '"post.content | strip_html | truncatewords: 50"'
 article_introduction_format: post.excerpt
 article_catalogue: true # 是否在侧边菜单展示文章目录/Whether to display the article catalogue in the sidebar menu
+
+# 顶栏样式配置/Header style settings
+header:
+  menu: false # 是否显示菜单/Whether to display "Menu"
+  about: false # 是否显示关于/Whether to display "About"
+  archive: false # 是否显示归档/Whether to display "Archive"
+  list-categories: true # 是否直接列出分类/Whether to list categories directly
 
 # 评论功能配置/Comment settings
 gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.

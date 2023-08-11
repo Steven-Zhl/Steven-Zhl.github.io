@@ -1,0 +1,20 @@
+<div style="display: block;min-height: 50px;margin-bottom: 48px;">
+    <label for="category_selector">
+        <select id="category_selector" onchange="selectChange()" onload="const category = $(this).val();"
+                style="margin-left: 10px; width: min-content; float: left;">
+            <option value="all">全部Category</option>
+            {% for category in site.categories | sort_by: category[1].size | reverse %}
+            <option value="{{ category | first }}"> {{ category | first }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label for="tag_selector">
+        <select id="tag_selector" onchange="selectChange()" onload="const tag= $(this).val();"
+                style="margin-left: 10px; width: min-content;float: left;">
+            <option value="all">全部Tag</option>
+            {% for tag in site.tags | sort_by: category[1].size | reverse %}
+            <option value="{{ tag | first }}"> {{ tag | first }}</option>
+            {% endfor %}
+        </select>
+    </label>
+</div>

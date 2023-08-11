@@ -6,7 +6,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -210,7 +209,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     color: #3c3b3b;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: 800;
     letter-spacing: 0.25em;
     line-height: 1.65;
@@ -258,14 +257,14 @@ sup {
 blockquote {
     border-left: solid 4px rgba(160, 160, 160, 0.3);
     font-style: italic;
-    margin: 0 0 2em 0;
+    margin: 0 0 0 0;
     padding: 0.5em 0 0.5em 2em;
 }
 
 code {
     background: rgba(160, 160, 160, 0.075);
     border: solid 1px rgba(160, 160, 160, 0.3);
-    font-family: "Consolas", monospace;
+    font-family: "Cascadia Code", "Consolas", monospace;
     font-size: 1em;
     margin: 0 0.25em;
     padding: 0.25em 0.65em;
@@ -1795,7 +1794,7 @@ hr.major {
     -ms-justify-content: -ms-flex-end;
     justify-content: flex-end;
     border-bottom: 0;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -1865,7 +1864,7 @@ button,
     color: #3c3b3b !important;
     cursor: pointer;
     display: inline-block;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.6em;
     font-weight: 800;
     height: 4.8125em;
@@ -2601,7 +2600,7 @@ ul.posts article header h3 {
 
 ul.posts article header .published {
     display: block;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -2665,7 +2664,7 @@ ul.posts article header > :last-child {
 
 .mini-post header .published {
     display: block;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -2724,7 +2723,7 @@ ul.posts article header > :last-child {
 
 /* Post */
 
-.post {
+.post{
     padding: 3em 3em 1em 3em;
     background: #ffffff;
     border: solid 1px rgba(160, 160, 160, 0.3);
@@ -2781,7 +2780,7 @@ ul.posts article header > :last-child {
 .post > header .meta .published {
     color: #3c3b3b;
     display: block;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.7em;
     font-weight: 800;
     letter-spacing: 0.25em;
@@ -2835,7 +2834,7 @@ ul.posts article header > :last-child {
 .post > footer .stats li {
     border-left: solid 1px rgba(160, 160, 160, 0.3);
     display: inline-block;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3021,8 +3020,8 @@ section.special, article.special {
 }
 
 header p {
-    font-family: "Raleway", Helvetica, sans-serif;
-    font-size: 0.7em;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9em;
     font-weight: 400;
     letter-spacing: 0.25em;
     line-height: 2.5;
@@ -3179,7 +3178,7 @@ body {
 
 #header .links ul li a {
     border-bottom: 0;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.7em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3491,7 +3490,7 @@ body.single #wrapper {
 
 #footer .copyright {
     color: #aaaaaa;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 0.5em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3567,7 +3566,7 @@ body.single #footer {
 }
 
 #menu .links > li a p {
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: 400;
     letter-spacing: 0.25em;
     margin-bottom: 0;
@@ -3607,7 +3606,7 @@ body.single #footer {
 #menu .category ul > li a {
     display: block;
     border-bottom: 0;
-    font-family: "Raleway", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 1.0em;
     font-weight: 400;
     letter-spacing: 0.25em;

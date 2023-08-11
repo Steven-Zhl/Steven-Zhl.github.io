@@ -2,17 +2,18 @@
 <article class="post">
     <header>
         <div class="title">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2> <!-- 标题/title -->
-            <p>{{ post.subtitle }}</p> <!-- 副标题/subtitle -->
+            <!-- 标题/title -->
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <!-- 副标题/subtitle -->
+            <p>{{ post.subtitle }}</p>
         </div>
         <div class="meta">
-            <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%m" }}</time>
-            {% if post.author and post.author != site.username %}
-            <span class="name">{{ post.author }}</span>
+            <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%M" }}</time>
+            {% if post.author != site.username %} <span class="name">{{ post.author }}</span>
             {% else %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
-                <img src="{{ site.baseurl }}/images/avatar.jpg"/>
+                <img src="{{ site.baseurl }}/images/avatar.jpg" alt="avatar"/>
             </a>
             {% endif %}
         </div>
@@ -21,41 +22,36 @@
         <img src="{% if post.cover %}{{ post.cover }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
              alt="{{ post.title }}"/>
     </a>
-    <div class="content"> <!-- 内容预览/Content Preview -->
-        {% if site.article_introduction_format=='post.excerpt' %}
-        {{ post.excerpt }}
-        {% else %}
-        {{ post.content | strip_html | truncatewords: 50 }}
-        {% endif %}
+    <!-- 内容预览/Content Preview -->
+    <div class="content">
+        {% if site.article_introduction_format=='post.excerpt' %} {{ post.excerpt }}
+        {% else %} {{ post.content | strip_html | truncatewords: 50 }} {% endif %}
     </div>
     <footer>
         <ul class="actions">
-            <li><a href="{{ post.url }}" class="button large">
-                {% if site.localization=='CN' %}继续阅读
-                {% else if site.localization=='TC' %}繼續閱讀
-                {% else %}Continue Reading{% endif %}
-            </a></li>
-
+            <li>
+                <a href="{{ post.url }}" class="button large">{{ site.data.locales[site.localization].continue-reading }}</a>
+            </li>
         </ul>
-
         <ul class="stats">
             <li>
                 <i class="icon solid fa-tag"
-                   title="{% if site.localization=='CN' %}标签{% else if site.localization=='TC' %}標簽{% else %}Tags{% endif %}"></i>
+                   title="{{ site.data.locales[site.localization].tags }}">
+                </i>
             </li>
             <li>
                 {% for tag in post.tags %}
-                <a href="/tag/?tag={{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                <a href="/archive?tag={{ tag }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
             </li>
             <li>
                 <i class="icon solid fa-bars"
-                   title="{% if site.localization=='CN' %}类别{% else if site.localization=='TC' %}類別{% else %}Categories{% endif %}"></i>
+                   title="{{ site.data.locales[site.localization].categories }}">
+                </i>
             </li>
             <li>
                 {% for category in post.categories %}
-                <a href="/category/?category={{ category | slugify }}">
-                    {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
+                <a href="/archive?category={{ category }}"> {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
                 {% endfor %}
             </li>
         </ul>
@@ -69,13 +65,12 @@
             <p>{{ page.subtitle }}</p>
         </div>
         <div class="meta">
-            <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%Y-%m-%d %H:%m" }}</time>
-            {% if page.author and page.author != site.username %}
-            <span class="name">{{ page.author }}</span>
+            <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
+            {% if page.author and page.author != site.username %} <span class="name">{{ page.author }}</span>
             {% else %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
-                <img src="{{ site.baseurl }}/images/avatar.jpg"/>
+                <img src="{{ site.baseurl }}/images/avatar.jpg" alt="头像"/>
             </a>
             {% endif %}
         </div>
@@ -89,21 +84,22 @@
         <ul class="stats">
             <li>
                 <i class="icon solid fa-tag"
-                   title="{% if site.localization=='CN' %}标签{% else if site.localization=='TC' %}標簽{% else %}Tags{% endif %}"></i>
+                   title="{{ site.data.locales[site.localization].tags }}">
+                </i>
             </li>
             <li>
                 {% for tag in page.tag %}
-                <a href="/tag/?tag={{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                <a href="/archive?tag={{ tag }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
             </li>
             <li>
                 <i class="icon solid fa-bars"
-                   title="{% if site.localization=='CN' %}类别{% else if site.localization=='TC' %}類別{% else %}Categories{% endif %}"></i>
+                   title="{{ site.data.locales[site.localization].categories }}">
+                </i>
             </li>
             <li>
                 {% for category in page.category %}
-                <a href="/category/?category={{ category | slugify }}">
-                    {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
+                <a href="/archive?category={{ category }}"> {{ category }}</a>{% unless forloop.last %}/ {% endunless %}
                 {% endfor %}
             </li>
         </ul>

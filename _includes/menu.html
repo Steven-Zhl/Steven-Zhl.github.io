@@ -4,7 +4,7 @@
     <section>
         <form class="search" method="get" action="#search">
             <input type="text" name="query" id="menu-search-input" onfocus="onMenuSearchChange()"
-                placeholder="{% if site.localization=='CN' or site.localization=='TC' %}搜索{% else %}Search{% endif %}" />
+                   placeholder="{{ site.data.locales[site.localization].search }}"/>
         </form>
     </section>
     <section id="menu-search-results-section" style="display: none;"><!-- 搜索结果 -->
@@ -16,29 +16,18 @@
         <ul id="menu-search-results-ul" class="links"></ul>
     </section>
     {% endif %}
-    {% if site.article_catalogue and content!='' %}
+    {% if site.article_catalogue and {{include.catalog}} %}
     <section class="category">
-        <h3>目录</h3>
+        <h3>{{ site.data.locales[site.localization].catalogue }}</h3>
         {% include toc.html html=content %}
     </section>
     {% endif %}
     <!-- Links -->
     <section>
         <ul class="links">
-            <li>
-                <a href="/about">
-                    <h3>{% if site.localization=='CN'%}关于 {% else if site.localization=='TC' %}關于 {% else %}About{%
-                        endif %}
-                    </h3>
-                    {% if site.localization=='CN' %}
-                    <p>莫让自己的头脑成为别人思想的跑马场</p>
-                    {% else if site.localization=='TC' %}
-                    <p>莫讓自己的頭腦成為別人思想的跑馬場</p>
-                    {% else %}
-                    <p>Don’t let your mind become a racetrack for other people’s thoughts.</p>
-                    {% endif %}
-                </a>
-            </li>
+            <li><a href="/"><h3>{{ site.data.locales[site.localization].menu }}</h3></a></li>
+            <li><a href="/archive"><h3>{{ site.data.locales[site.localization].archive }}</h3></a></li>
+            <li><a href="/about"><h3>{{ site.data.locales[site.localization].about }}</h3></a></li>
         </ul>
     </section>
 </section>

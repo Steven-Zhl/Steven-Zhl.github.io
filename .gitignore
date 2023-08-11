@@ -1,5 +1,9 @@
 _site
+_drafts
+vendor
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-vendor
+.idea
+.vscode
+
