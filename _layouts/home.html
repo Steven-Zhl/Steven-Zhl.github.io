@@ -25,7 +25,7 @@
         <section>
             <div class="mini-posts">
                 {% for post in site.posts %}
-                {% if post.stickie == true %}
+                {% if post.stick == true %}
                 {% include mini-post.html %}
                 {% endif %}
                 {% endfor %}

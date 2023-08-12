@@ -2,9 +2,11 @@
     <header>
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%m" }}</time>
-        <a href="/about" class="author"><img src="{{site.baseurl}}/images/avatar.jpg" alt="avatar" /></a>
+        {% if post.author == null or post.author == site.username %}
+        <a href="/about" class="author"><img src="{{site.baseurl}}/images/avatar.jpg" alt="avatar"/></a>
+        {% endif %}
     </header>
     <a href="{{ post.url }}" class="image">
-        <img src="{% if post.cover %}{{ post.cover }}{% else %}../images/default_cover.jpg{% endif %}" alt="cover" />
+        <img src="{% if post.cover %}{{ post.cover }}{% else %}../images/default_cover.jpg{% endif %}" alt="cover"/>
     </a>
 </article>

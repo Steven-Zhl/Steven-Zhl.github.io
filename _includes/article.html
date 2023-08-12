@@ -9,12 +9,13 @@
         </div>
         <div class="meta">
             <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%M" }}</time>
-            {% if post.author != site.username %} <span class="name">{{ post.author }}</span>
-            {% else %}
+            {% if post.author == null or post.author == site.username %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
                 <img src="{{ site.baseurl }}/images/avatar.jpg" alt="avatar"/>
             </a>
+            {% else %}
+            <span class="name">{{ post.author }}</span>
             {% endif %}
         </div>
     </header>
@@ -30,7 +31,8 @@
     <footer>
         <ul class="actions">
             <li>
-                <a href="{{ post.url }}" class="button large">{{ site.data.locales[site.localization].continue-reading }}</a>
+                <a href="{{ post.url }}" class="button large">{{ site.data.locales[site.localization].continue-reading
+                    }}</a>
             </li>
         </ul>
         <ul class="stats">
@@ -66,12 +68,13 @@
         </div>
         <div class="meta">
             <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
-            {% if page.author and page.author != site.username %} <span class="name">{{ page.author }}</span>
-            {% else %}
+            {% if page.author == null or page.author == site.username %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
                 <img src="{{ site.baseurl }}/images/avatar.jpg" alt="头像"/>
             </a>
+            {% else %}
+            <span class="name">{{ page.author }}</span>
             {% endif %}
         </div>
     </header>
