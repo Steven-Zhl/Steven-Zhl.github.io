@@ -42,7 +42,7 @@ exclude: # Jekyll构建时应该被排除的文件/Files that should be excluded
   - vendor/ruby/
 # jekyll-paginate配置。/jekyll-paginate settings.
 paginate: 5 # 每页显示的文章数量/Number of articles displayed per page
-paginate_path: "/page/num/" # 分页的URL格式/Paging URL format
+paginate_path: "/page/:num/" # 分页的URL格式/Paging URL format
 
 # 本项目的一些配置。/Some settings of this project.
 lang: zh-Hans # ( <html lang=""> ) html元素的lang特性。/HTML element lang attribute.
