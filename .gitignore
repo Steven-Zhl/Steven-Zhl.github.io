@@ -1,9 +1,13 @@
+# 转换后的网页
 _site
+# 草稿文件，本就该忽略
 _drafts
-vendor
+# cache文件
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+# IDE的配置文件
 .idea
 .vscode
-
+# 依赖列表，由于大多数库更新较快，建议该文件不要提交，配好环境后会根据实际情况自动生成
+Gemfile.lock
