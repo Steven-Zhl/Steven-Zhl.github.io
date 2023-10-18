@@ -11,3 +11,6 @@ _drafts
 .vscode
 # 依赖列表，由于大多数库更新较快，建议该文件不要提交，配好环境后会根据实际情况自动生成
 Gemfile.lock
+Gemfile
+# Obsidian的相关文件
+.obsidian
