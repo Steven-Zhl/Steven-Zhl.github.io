@@ -7,6 +7,6 @@
         {% endif %}
     </header>
     <a href="{{ post.url }}" class="image">
-        <img src="{% if post.cover %}{{ post.cover }}{% else %}../images/default_cover.jpg{% endif %}" alt="cover"/>
+        <img src="{% if post.image %}{{ post.image }}{% else %}../images/default_cover.jpg{% endif %}" alt="cover"/>
     </a>
 </article>

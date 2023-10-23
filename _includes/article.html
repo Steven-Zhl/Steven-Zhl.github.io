@@ -4,8 +4,8 @@
         <div class="title">
             <!-- 标题/title -->
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <!-- 副标题/subtitle -->
-            <p>{{ post.subtitle }}</p>
+            <!-- 描述/description -->
+            <p>{{ post.description }}</p>
         </div>
         <div class="meta">
             <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%Y-%m-%d %H:%M" }}</time>
@@ -20,7 +20,7 @@
         </div>
     </header>
     <a href="{{ post.url }}" class="image featured">
-        <img src="{% if post.cover %}{{ post.cover }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
+        <img src="{% if post.image %}{{ post.image }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
              alt="{{ post.title }}"/>
     </a>
     <!-- 内容预览/Content Preview -->
@@ -64,7 +64,7 @@
     <header>
         <div class="title">
             <h2>{{ page.title }}</h2>
-            <p>{{ page.subtitle }}</p>
+            <p>{{ page.description }}</p>
         </div>
         <div class="meta">
             <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
@@ -79,7 +79,7 @@
         </div>
     </header>
     <span class="image featured">
-        <img src="{% if page.cover %}{{ page.cover }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
+        <img src="{% if page.image %}{{ page.image }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
              alt="{{ page.title }}"/>
     </span>
     {{ page.content }}
@@ -91,7 +91,7 @@
                 </i>
             </li>
             <li>
-                {% for tag in page.tag %}
+                {% for tag in page.tags %}
                 <a href="/archive?tag={{ tag }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
             </li>

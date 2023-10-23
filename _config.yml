@@ -77,3 +77,8 @@ mathjax: # MathJax(数学公式)
   enable: true # 是否允许渲染数学公式/Whether to enable render formula
 jekyll-mermaid: # Jekyll Mermaid(绘图功能)
   enable: true # 是否启用绘图功能/Whether to enable drawing function
+feed: # Jekyll-Feed(RSS订阅功能)
+  posts_limit: 10 # RSS订阅的文章数量上限/Number of articles for RSS subscription
+  tags:
+    except:
+      - test
