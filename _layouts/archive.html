@@ -18,7 +18,8 @@
         search-article.html%} {% endif %}
         <!-- 显示文章列表 -->
         <div id="article-list">
-            {% for post in site.posts %}
+            {% assign sorted_posts = site.posts | sort: 'title' %}
+            {% for post in sorted_posts %}
             <article class="mini-post" tag="{{ post.tags | join: ' ' }}" category="{{ post.category }}">
                 <header>
                     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
@@ -57,4 +58,5 @@
 {% include archive-script.html %}
 {% if site.simple-jekyll-search.enable %} {% include search-script.html %}{% endif %}
 </body>
+
 </html>
