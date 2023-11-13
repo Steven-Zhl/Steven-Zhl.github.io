@@ -396,20 +396,20 @@ code {
     font-family: "Cascadia Code", "Consolas", "monospace";
     font-size: 1em;
     margin: 0 0.25em;
-    padding: 0.25em 0.65em;
+    padding: 0.25em;
 }
 
 pre {
     -webkit-overflow-scrolling: touch;
     font-family: "Courier New", monospace;
     font-size: 0.9em;
-    margin: 0 0 2em 0;
+    margin: 1em 0 1em 0;
 }
 
 pre code {
     display: block;
     line-height: 1.5em;
-    padding: 1em 1.5em;
+    padding: 0.75em 1em;
     overflow-x: auto;
 }
 
@@ -3618,7 +3618,7 @@ body.single #wrapper {
 #footer .copyright {
     color: #aaaaaa;
     font-family: Helvetica, sans-serif;
-    font-size: 0.5em;
+    font-size: 0.75em;
     font-weight: 400;
     letter-spacing: 0.25em;
 }
