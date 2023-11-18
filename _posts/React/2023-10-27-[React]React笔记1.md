@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[React] 1 快速入门"
-description: 其实突然想学React是因为Fluent Design在Web方面只提供了React的组件库(hhh)
+description: 其实突然想学React是因为Fluent Design在Web方面只提供了React的组件库，而且使用React Native开发跨平台应用是一个很流行的选择...试试吧，万一成了呢
 date: 2023-10-27 18:00:00 +0800
 image: "/images/cover/React_1_快速入门.jpg"
 tags:
@@ -11,6 +11,49 @@ tags:
 category: React
 ---
 
-> 不得不说大多数比较新的东西文档都写的很好，先别管东西难还是简单，至少作者说人话，无论是Python、Javascript、Jekyll还是React
->
-> 你说是吧，微软？(Microsoft Learn全系文档看起来都很怪，一点不循序渐进)
+> 不得不说这东西的文档写的真不错，看起来很舒服
+
+## 1. 在学习React之前
+
+> 这一节说一下作为一个小白，在学习React之前需要做哪些准备工作
+
+### 1.0 你要会的
+
+* 称得上熟悉HTML、CSS，比如自己写过HTML或者爬虫、编写或调整过CSS
+* 对JS有一定程度的了解，比如写过Tampermonkey脚本、用过jQuery、搞过AJAX之类的。
+* 对软件开发基础理论有些了解，最好了解设计模式。
+* 但上面几点都不是最重要的，我认为无论哪个档次的程序员，都是“开IDE有益”的，也就是说每次写代码都会有所收获，没有谁“已经学的足够多了”的...我的意思是，最重要的是要勤奋学习。这一点也用以自勉。
+
+### 1.0 配置基本环境
+
+* React是一个JS的界面库，这意味着你需要在本机有一个JS的运行环境，最主流的选择是Node.js。无论在哪个平台，我都建议你使用命令行工具安装它，因为它本身也只是个命令行工具。
+
+```bash
+winget install OpenJS.NodeJS # Windows，在Windows 11及以后，winget作为一个系统自带的包管理器，可以直接使用
+brew install node # macOS，使用Homebrew安装
+apt install nodejs # Linux，但并不是所有发行版都使用apt，话说你都用Linux了应该知道怎么安装App吧
+```
+
+* 安装完成后，你可以通过`node -v`、`npm -v`、`npx -v`来查看Node.js、npm(Node 程序包管理器)、npx(Node 程序包运行器)的版本，
+
+### 1.1 安装`create-react-app`
+
+> 这是一个官方提供的脚手架工具，它是一个Node.js的包，可以快速创建一个React应用的基本环境。
+
+```bash
+npm install -g create-react-app # 全局安装create-react-app
+```
+
+### 1.2 创建React应用
+
+```bash
+npx create-react-app app-name # 创建一个React应用，会在当前路径下创建同名文件夹，项目名不允许包含大写字母
+
+cd app-name # 你的React应用
+npm start
+```
+
+## References
+
+* [React 入门 - 学习 Web 开发 \| MDN](https://developer.mozilla.org/zh-CN/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
+* [React 官方中文文档](https://react.jscn.org)
