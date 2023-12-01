@@ -25,11 +25,8 @@
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
     </script>
     {% endif %}
-    <!-- Blockquote Font -->
-    {% if page.title %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" />
-    {% endif %}
-
+    <!-- Customized Font by https://www.webfont.com -->
+    <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
     {% if site.jekyll-mermaid.enable and page.title %}
     <!-- Mermaid -->
     <script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
