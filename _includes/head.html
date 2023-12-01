@@ -27,6 +27,12 @@
     {% endif %}
     <!-- Customized Font by https://www.webfont.com -->
     <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+        $webfont.load("blockquote p", "ce623d8158cc4e30b12df9e65960506a", "LXGWWenKai-GB");
+        /*$webfont.load("#id1,.class1,h1", "ce623d8158cc4e30b12df9e65960506a", "LXGWWenKai-GB");*/
+        /*．．．*/
+        $webfont.draw();
+    </script>
     {% if site.jekyll-mermaid.enable and page.title %}
     <!-- Mermaid -->
     <script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
