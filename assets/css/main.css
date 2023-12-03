@@ -3569,6 +3569,7 @@ body.single #wrapper {
 #intro header h2 {
     font-size: 2em;
     font-weight: 900;
+    font-family: 'Bauhaus93';
 }
 
 #intro header p {
@@ -3584,7 +3585,6 @@ body.single #wrapper {
 
     #intro header h2 {
         font-size: 2em;
-        font-family: 'Bauhaus93' !important;
     }
 
     #intro header p {
