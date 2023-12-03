@@ -1,5 +1,11 @@
 @import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
+
+@font-face {
+    font-family: 'Bauhaus93';
+    src: local('☺'), url('../webfonts/Bauhaus93.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*
 	Future Imperfect by HTML5 UP
@@ -225,7 +231,7 @@ input,
 select,
 textarea {
     color: #646464;
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 14pt;
     font-weight: 400;
     line-height: 1.75;
@@ -334,7 +340,7 @@ h4,
 h5,
 h6 {
     color: #3c3b3b;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-weight: 800;
     letter-spacing: 0.25em;
     line-height: 1.65;
@@ -385,7 +391,7 @@ sup {
 
 blockquote {
     border-left: solid 4px rgba(160, 160, 160, 0.3);
-    font-family: "LXGWWenKai-GB3aca8e51cc25798", sans-serif;
+    font-family: "LXGW WenKai", sans-serif;
     margin: 0.5em 0 0.5em 0;
     padding: 0.5em 0 0.5em 2em;
 }
@@ -1924,7 +1930,7 @@ hr.major {
     -ms-justify-content: -ms-flex-end;
     justify-content: flex-end;
     border-bottom: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -1993,7 +1999,7 @@ button,
     color: #3c3b3b !important;
     cursor: pointer;
     display: inline-block;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.6em;
     font-weight: 800;
     height: 4.8125em;
@@ -2733,7 +2739,7 @@ ul.posts article header h3 {
 
 ul.posts article header .published {
     display: block;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -2796,7 +2802,7 @@ ul.posts article header> :last-child {
 
 .mini-post header .published {
     display: block;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -2911,7 +2917,7 @@ ul.posts article header> :last-child {
 .post>header .meta .published {
     color: #3c3b3b;
     display: block;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.7em;
     font-weight: 800;
     letter-spacing: 0.25em;
@@ -2965,7 +2971,7 @@ ul.posts article header> :last-child {
 .post>footer .stats li {
     border-left: solid 1px rgba(160, 160, 160, 0.3);
     display: inline-block;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.6em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3151,7 +3157,7 @@ article.special {
 }
 
 header p {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.9em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3277,7 +3283,8 @@ body {
 }
 
 #header h1 a {
-    font-size: 0.7em;
+    font-size: 1em;
+    font-family: 'Bauhaus93';
 }
 
 #header .links {
@@ -3308,7 +3315,7 @@ body {
 
 #header .links ul li a {
     border-bottom: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.7em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3577,6 +3584,7 @@ body.single #wrapper {
 
     #intro header h2 {
         font-size: 2em;
+        font-family: 'Bauhaus93' !important;
     }
 
     #intro header p {
@@ -3618,7 +3626,7 @@ body.single #wrapper {
 
 #footer .copyright {
     color: #aaaaaa;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 0.75em;
     font-weight: 400;
     letter-spacing: 0.25em;
@@ -3693,7 +3701,7 @@ body.single #footer {
 }
 
 #menu .links>li a p {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-weight: 400;
     letter-spacing: 0.25em;
     margin-bottom: 0;
@@ -3732,7 +3740,7 @@ body.single #footer {
 #menu .category ul>li a {
     display: block;
     border-bottom: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 1.0em;
     font-weight: 400;
     letter-spacing: 0.25em;

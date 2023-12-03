@@ -22,17 +22,24 @@
             }
         });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+        type="text/javascript">
+        </script>
     {% endif %}
-    <!-- Customized Font by https://www.webfont.com -->
-    <script type="text/javascript" src="https://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
-    <script type="text/javascript">
-        $webfont.load("blockquote p", "ce623d8158cc4e30b12df9e65960506a", "LXGWWenKai-GB");
-        /*$webfont.load("#id1,.class1,h1", "ce623d8158cc4e30b12df9e65960506a", "LXGWWenKai-GB");*/
-        /*．．．*/
-        $webfont.draw();
-    </script>
+    <!-- Load Webfont -->
+    <!-- 感谢来自webfonts(有字库)、jsdelivr、baomitu(57CDN)的免费cdn服务 -->
+    <!-- blockquote -->
+    <link crossorigin="anonymous"
+        integrity="sha512-Fzvxn9FrR1aKr/Z4Pg9KpnVHCsJoq2QwSu1juU2oQ6wDUkUMk3qQUUWKgFjk0m0LzCamIJVOkg5zeyNX5I1wgA=="
+        href="https://lib.baomitu.com/lxgw-wenkai-webfont/latest/lxgwwenkai-regular.min.css" rel="stylesheet">
+    <!-- Noto Sans SC用于大多数的正文字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.16/index.min.css">
+
+    <!-- 每篇文章最后的一个小标记 .post>footer .stats li -->
+    <!-- 页面顶栏#header .links ul li a -->
+    <!-- 页面底部#footer .copyright -->
+    <!-- #menu .links>li a p -->
+    <!-- #menu .category ul>li a -->
     {% if site.jekyll-mermaid.enable and page.title %}
     <!-- Mermaid -->
     <script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
