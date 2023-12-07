@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[机器学习] 10 Transformer"
-description: 嗯，最有潜力的模型。
+description: 因为大模型的出现而备受瞩目，猜猜“GPT”是什么的简称？
 date: 2023-06-24 17:00:00 +0800
 tags:
   - 机器学习
