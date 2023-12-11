@@ -12,7 +12,7 @@
             {% if post.author == null or post.author == site.username %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
-                <img src="{{ site.baseurl }}/images/avatar.jpg" alt="avatar"/>
+                <img src="{{ site.baseurl }}/images/avatar.webp" alt="avatar" />
             </a>
             {% else %}
             <span class="name">{{ post.author }}</span>
@@ -20,8 +20,8 @@
         </div>
     </header>
     <a href="{{ post.url }}" class="image featured">
-        <img src="{% if post.image %}{{ post.image }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
-             alt="{{ post.title }}"/>
+        <img src="{% if post.image %}{{ post.image }}{% else %}{{ site.baseurl }}/images/default_cover.webp{% endif %}"
+            alt="{{ post.title }}" />
     </a>
     <!-- 内容预览/Content Preview -->
     <div class="content">
@@ -37,8 +37,7 @@
         </ul>
         <ul class="stats">
             <li>
-                <i class="icon solid fa-tag"
-                   title="{{ site.data.locales[site.localization].tags }}">
+                <i class="icon solid fa-tag" title="{{ site.data.locales[site.localization].tags }}">
                 </i>
             </li>
             <li>
@@ -47,8 +46,7 @@
                 {% endfor %}
             </li>
             <li>
-                <i class="icon solid fa-bars"
-                   title="{{ site.data.locales[site.localization].categories }}">
+                <i class="icon solid fa-bars" title="{{ site.data.locales[site.localization].categories }}">
                 </i>
             </li>
             <li>
@@ -71,7 +69,7 @@
             {% if page.author == null or page.author == site.username %}
             <a href="/about" class="author">
                 <span class="name">{{ site.username }}</span>
-                <img src="{{ site.baseurl }}/images/avatar.jpg" alt="头像"/>
+                <img src="{{ site.baseurl }}/images/avatar.webp" alt="头像" />
             </a>
             {% else %}
             <span class="name">{{ page.author }}</span>
@@ -79,15 +77,14 @@
         </div>
     </header>
     <span class="image featured">
-        <img src="{% if page.image %}{{ page.image }}{% else %}{{ site.baseurl }}/images/default_cover.jpg{% endif %}"
-             alt="{{ page.title }}"/>
+        <img src="{% if page.image %}{{ page.image }}{% else %}{{ site.baseurl }}/images/default_cover.webp{% endif %}"
+            alt="{{ page.title }}" />
     </span>
     {{ page.content }}
     <footer>
         <ul class="stats">
             <li>
-                <i class="icon solid fa-tag"
-                   title="{{ site.data.locales[site.localization].tags }}">
+                <i class="icon solid fa-tag" title="{{ site.data.locales[site.localization].tags }}">
                 </i>
             </li>
             <li>
@@ -96,8 +93,7 @@
                 {% endfor %}
             </li>
             <li>
-                <i class="icon solid fa-bars"
-                   title="{{ site.data.locales[site.localization].categories }}">
+                <i class="icon solid fa-bars" title="{{ site.data.locales[site.localization].categories }}">
                 </i>
             </li>
             <li>
