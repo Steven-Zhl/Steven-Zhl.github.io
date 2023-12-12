@@ -3,60 +3,63 @@
 {% include head.html %}
 
 <body class="is-preload">
-<!-- Wrapper -->
-<div id="wrapper">
-    <!-- Header -->
-    {% include header.html %}
-    <!-- Menu -->
-    {% include menu.html catalog=false %}
-    <!-- Main -->
-    <div id="main">
-        <!-- 显示筛选框 -->
-        {% include filter.html %}
-        <!-- 搜索结果 -->
-        {% if site.simple-jekyll-search.enable %} {% include
-        search-article.html%} {% endif %}
-        <!-- 显示文章列表 -->
-        <div id="article-list">
-            {% assign sorted_posts = site.posts | sort: 'title' %}
-            {% for post in sorted_posts %}
-            <article class="mini-post" tag="{{ post.tags | join: ' ' }}" category="{{ post.category }}">
-                <header>
-                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                    <time class="published" style="font-size: medium">{{ post.date | date: "%Y-%m-%d %H:%M" }}</time>
-                    <a href="/about" class="author"><img src="{{site.baseurl}}/images/avatar.jpg" alt="avatar"/></a>
-                </header>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-    <!-- Sidebar -->
-    <section id="sidebar">
-        <!-- Intro -->
-        {% include intro.html %}
-        <!-- Mini Posts -->
-        <section>
-            <div class="mini-posts">
-                {% for post in site.posts %}
-                {% if post.stickie == true %}
-                {% include mini-post.html %}
-                {% endif %}
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        {% include header.html %}
+        <!-- Menu -->
+        {% include menu.html catalog=false %}
+        <!-- Main -->
+        <div id="main">
+            <!-- 显示筛选框 -->
+            {% include filter.html %}
+            <!-- 搜索结果 -->
+            {% if site.simple-jekyll-search.enable %} {% include
+            search-article.html%} {% endif %}
+            <!-- 显示文章列表 -->
+            <div id="article-list">
+                {% assign sorted_posts = site.posts | sort: 'title' %}
+                {% for post in sorted_posts %}
+                <article class="mini-post" tag="{{ post.tags | join: ' ' }}" category="{{ post.category }}">
+                    <header>
+                        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                        <time class="published" style="font-size: medium">{{ post.date | date: "%Y-%m-%d %H:%M"
+                            }}</time>
+                        <a href="/about" class="author">
+                            <img src="{{site.baseurl}}/images/avatar.webp" alt="avatar" />
+                        </a>
+                    </header>
+                </article>
                 {% endfor %}
             </div>
+        </div>
+        <!-- Sidebar -->
+        <section id="sidebar">
+            <!-- Intro -->
+            {% include intro.html %}
+            <!-- Mini Posts -->
+            <section>
+                <div class="mini-posts">
+                    {% for post in site.posts %}
+                    {% if post.stickie == true %}
+                    {% include mini-post.html %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+            <!-- Tags/Categories List -->
+            {% include tag-category-list.html %} {% include blurb.html %} {% include footer.html %}
         </section>
-        <!-- Tags/Categories List -->
-        {% include tag-category-list.html %} {% include blurb.html %} {% include footer.html %}
-    </section>
-</div>
+    </div>
 
-<!-- Scripts -->
-<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/util.js"></script>
-<script src="{{ site.baseurl }}/assets/js/main.js"></script>
-{% include archive-script.html %}
-{% if site.simple-jekyll-search.enable %} {% include search-script.html %}{% endif %}
+    <!-- Scripts -->
+    <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/util.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+    {% include archive-script.html %}
+    {% if site.simple-jekyll-search.enable %} {% include search-script.html %}{% endif %}
 </body>
 
 </html>
