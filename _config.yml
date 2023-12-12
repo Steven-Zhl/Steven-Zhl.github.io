@@ -3,7 +3,7 @@ title: Steven's Blog # 博客网站标题/Title of the blog
 intro: >- # 关于博客的简介/Introduction of the blog
   It's my blog.
 blurb: >- # 关于你的简介/Introduction of yourself
-  一个普普通通的大学生，成天做着奇思妙想的梦。
+  在重复的岁月里，对得起每一寸光阴。
 baseurl: "" # 根目录，默认留空即可，但如果你的网站没有部署在根目录，则需要手动修改。/Root directory, leave it blank by default, but if your website is not deployed in the root directory, you need to modify it manually.
 username: Steven-Zhl # 你的博客署名。/Your blog author.
 markdown: kramdown # Markdown解析器/Markdown parser
@@ -54,10 +54,10 @@ article_catalogue: true # 是否在侧边菜单展示文章目录/Whether to dis
 
 # 顶栏样式配置/Header style settings
 header:
-  menu: false # 是否显示菜单/Whether to display "Menu"
-  about: false # 是否显示关于/Whether to display "About"
-  archive: false # 是否显示归档/Whether to display "Archive"
-  list-categories: true # 是否直接列出分类/Whether to list categories directly
+  menu: true # 是否显示菜单/Whether to display "Menu"
+  about: true # 是否显示关于/Whether to display "About"
+  archive: true # 是否显示归档/Whether to display "Archive"
+  list-categories: false # 是否直接列出分类/Whether to list categories directly
 
 # 评论功能配置/Comment settings
 gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
