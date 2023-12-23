@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Linxu]1 关于Linux"
+title: "[Linux]1 关于Linux"
 date: 2023-08-20 16:00:00 +0800
 description: emmm, 毕竟Linux在服务端基本上一家独大嘛，所以说应聘时Linux基本上是一门必备技能，这份笔记就记录一下我的Linux学习吧。
 stick: false
