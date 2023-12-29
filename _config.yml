@@ -5,6 +5,7 @@ intro: >- # 关于博客的简介/Introduction of the blog
 blurb: >- # 关于你的简介/Introduction of yourself
   在重复的岁月里，对得起每一寸光阴。
 baseurl: "" # 根目录，默认留空即可，但如果你的网站没有部署在根目录，则需要手动修改。/Root directory, leave it blank by default, but if your website is not deployed in the root directory, you need to modify it manually.
+url: "https://Steven-Zhl.github.io" # 网站地址，Jekyll-Feed插件所需。/Website address, required by Jekyll-Feed plugin.
 username: Steven-Zhl # 你的博客署名。/Your blog author.
 markdown: kramdown # Markdown解析器/Markdown parser
 highlighter: rouge # 代码高亮/Code highlight

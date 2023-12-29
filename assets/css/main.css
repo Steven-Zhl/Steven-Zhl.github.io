@@ -340,11 +340,11 @@ h4,
 h5,
 h6 {
     color: #3c3b3b;
-    font-family: 'Noto Sans SC', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 800;
     letter-spacing: 0.25em;
     line-height: 1.65;
-    margin: 0 0 1em 0;
+    margin: 1em 0 1em 0;
 }
 
 h1 a,
