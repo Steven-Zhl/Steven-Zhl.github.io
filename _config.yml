@@ -5,7 +5,6 @@ intro: >- # 关于博客的简介/Introduction of the blog
 blurb: >- # 关于你的简介/Introduction of yourself
   在重复的岁月里，对得起每一寸光阴。
 baseurl: "" # 根目录，默认留空即可，但如果你的网站没有部署在根目录，则需要手动修改。/Root directory, leave it blank by default, but if your website is not deployed in the root directory, you need to modify it manually.
-url: "https://Steven-Zhl.github.io" # 网站地址，Jekyll-Feed插件所需。/Website address, required by Jekyll-Feed plugin.
 username: Steven-Zhl # 你的博客署名。/Your blog author.
 markdown: kramdown # Markdown解析器/Markdown parser
 highlighter: rouge # 代码高亮/Code highlight
@@ -41,6 +40,7 @@ exclude: # Jekyll构建时应该被排除的文件/Files that should be excluded
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+
 # jekyll-paginate配置。/jekyll-paginate settings.
 paginate: 5 # 每页显示的文章数量/Number of articles displayed per page
 paginate_path: "/page/:num/" # 分页的URL格式/Paging URL format
@@ -52,6 +52,8 @@ localization: zh-Hans # 本地化显示，可选项：en(英文), zh-Hans(简体
 # The style of the article introduction, if you like to write a "blockquote" as a quotation before each article (> XXX), it is recommended to use this style, otherwise it is recommended to use '"post.content | strip_html | truncatewords: 50"'
 article_introduction_format: post.excerpt
 article_catalogue: true # 是否在侧边菜单展示文章目录/Whether to display the article catalogue in the sidebar menu
+default_cover_path: /images/default_cover.webp # 默认封面图路径/Default cover path
+icp_record: # ICP备案号/ICP record number (China mainland only)
 
 # 顶栏样式配置/Header style settings
 header:

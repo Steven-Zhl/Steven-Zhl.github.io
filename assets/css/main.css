@@ -1,12 +1,4 @@
 @import url(fontawesome-all.min.css);
-
-@font-face {
-    font-family: 'Bauhaus93';
-    src: local('☺'), url('../webfonts/Bauhaus93.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
@@ -3276,15 +3268,11 @@ body {
 }
 
 #header h1 {
+    margin: auto 0;
     height: inherit;
     line-height: inherit;
     padding: 0 0 0 1.5em;
     white-space: nowrap;
-}
-
-#header h1 a {
-    font-size: 1em;
-    font-family: 'Bauhaus93';
 }
 
 #header .links {
@@ -3569,7 +3557,6 @@ body.single #wrapper {
 #intro header h2 {
     font-size: 2em;
     font-weight: 900;
-    font-family: 'Bauhaus93';
 }
 
 #intro header p {

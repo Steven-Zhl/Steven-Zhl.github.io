@@ -20,8 +20,8 @@
         </div>
     </header>
     <a href="{{ post.url }}" class="image featured">
-        <img src="{% if post.image %}{{ post.image }}{% else %}{{ site.baseurl }}/images/default_cover.webp{% endif %}"
-            alt="{{ post.title }}" />
+        <img src="{% if post.image %}{{ post.image }}{% else %}{{ site.baseurl }}{{ site.default_cover_path }}{% endif %}"
+             alt="{{ post.title }}"/>
     </a>
     <!-- 内容预览/Content Preview -->
     <div class="content">
@@ -77,8 +77,8 @@
         </div>
     </header>
     <span class="image featured">
-        <img src="{% if page.image %}{{ page.image }}{% else %}{{ site.baseurl }}/images/default_cover.webp{% endif %}"
-            alt="{{ page.title }}" />
+        <img src="{% if page.image %}{{ page.image }}{% else %}{{ site.baseurl }}{{ site.default_cover_path }}{% endif %}"
+             alt="{{ page.title }}"/>
     </span>
     {{ page.content }}
     <footer>

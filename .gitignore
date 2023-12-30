@@ -15,4 +15,5 @@ Gemfile
 # Obsidian的相关文件
 .obsidian
 # _config文件模板
+_config.yml
 _config_template.yml

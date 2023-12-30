@@ -7,6 +7,6 @@
         {% endif %}
     </header>
     <a href="{{ post.url }}" class="image">
-        <img src="{% if post.image %}{{ post.image }}{% else %}../images/default_cover.webp{% endif %}" alt="cover" />
+        <img src="{% if post.image %}{{ post.image }}{% else %}..{{ site.default_cover_path }}{% endif %}" alt="cover"/>
     </a>
 </article>
