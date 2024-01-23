@@ -1,10 +1,16 @@
 <head>
     <title>{% if page.title!=null %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css" />
-    <link rel="icon" href="{{site.baseurl}}/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
+    <link rel="icon" href="{{ site.baseurl }}/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/syntax.css" />
+    <!--Meta Description-->
+    {% if page.description %}
+    <meta name="description" content="{{ page.title }}:{{ page.description }}. {{ site.title }}">
+    {% else %}
+    <meta name="description" content="{{ site.title }}">
+    {% endif %}
 
     {% if site.feed %}
     <!-- RSS -->
