@@ -6,10 +6,15 @@
     <link rel="icon" href="{{site.baseurl}}/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax.css" />
 
+    {% if site.feed %}
+    <!-- RSS -->
+    {% feed_meta %}
+    {% endif %}
+
     {% if site.gitalk.enable and page.title %}
     <!-- Gitalk -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     {% endif %}
 
     {% if site.mathjax.enable and page.title %}
@@ -32,15 +37,11 @@
         type="text/javascript"></script>
     {% endif %}
 
-    {% if site.jekyll-mermaid.enable %}
+    {% if site.jekyll-mermaid.enable and page.title %}
     <!-- Mermaid -->
-    <script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
+    <script async src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
     {% endif %}
 
-    <!-- 感谢jsdelivr、baomitu(57CDN)提供的免费webfont cdn服务 -->
-    <link crossorigin="anonymous"
-        integrity="sha512-Fzvxn9FrR1aKr/Z4Pg9KpnVHCsJoq2QwSu1juU2oQ6wDUkUMk3qQUUWKgFjk0m0LzCamIJVOkg5zeyNX5I1wgA=="
-        href="https://lib.baomitu.com/lxgw-wenkai-webfont/latest/lxgwwenkai-regular.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5.0.16/index.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/josefin-sans@5.0.18/index.min.css">
+    <!-- 感谢bootcdn提供的免费webfont cdn服务 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css"/>
 </head>

@@ -56,11 +56,13 @@
             </a>
         </li>
         {% endif %}
+        {% if site.feed %}
         <li>
             <a href="/feed.xml" class="icon solid fa-rss" id="RSS-Feed-Link" onclick="copyRssLink()">
                 <span class="label">RSS</span>
             </a>
         </li>
+        {% endif %}
     </ul>
     <p class="copyright">&copy; Untitled.
         Design: <a href="https://html5up.net">HTML5 UP</a>.

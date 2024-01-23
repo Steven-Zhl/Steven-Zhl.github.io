@@ -1,0 +1,21 @@
+<section>
+    <a href="https://github.com/Steven-Zhl/GitHub-Contributions-Calendar">
+        <h3>{{ site.data.locales[site.localization].update-calendar }}</h3>
+    </a>
+    <div id="update-calendar-header">
+        <h4 id="total-updates"></h4>
+        <select id="change-update-view">
+            <option value="Month">{{ site.data.locales[site.localization].month-view }}</option>
+            <option value="Year">{{ site.data.locales[site.localization].year-view }}</option>
+        </select>
+    </div>
+    <div class="update-container">
+        <div id="update-info">
+
+        </div>
+        <div id="update-calendar-container"></div>
+    </div>
+    <div style="position: absolute;" class="details"></div>
+    <script src="/assets/js/update-calendar.js"></script>
+    <link rel="stylesheet" href="/assets/css/update-calendar.css">
+</section>

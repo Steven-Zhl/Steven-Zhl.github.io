@@ -19,8 +19,8 @@
         </div>
         <!-- Sidebar -->
         <section id="sidebar">
-            <!-- Intro -->
-            {% include intro.html %}
+            <!-- Description -->
+            {% include description.html %}
             <!-- Mini Posts -->
             <section>
                 <div class="mini-posts">
@@ -31,6 +31,10 @@
                     {% endfor %}
                 </div>
             </section>
+            {% if site.update-calendar.enable %}
+            <!--Update Calendar-->
+            {% include update-calendar.html %}
+            {% endif %}
             <!-- Tags/Categories List -->
             {% include tag-category-list.html %}
             {% include blurb.html %}

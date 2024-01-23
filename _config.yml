@@ -1,6 +1,6 @@
 # 基本配置/Basic settings
 title: Steven's Blog # 博客网站标题/Title of the blog
-intro: >- # 关于博客的简介/Introduction of the blog
+description: >- # 关于博客的简介/Introduction of the blog
   我思故我在.
 blurb: >- # 关于你的简介/Introduction of yourself
   在重复的岁月里，对得起每一寸光阴。
@@ -54,16 +54,16 @@ article_introduction_format: post.excerpt
 article_catalogue: true # 是否在侧边菜单展示文章目录/Whether to display the article catalogue in the sidebar menu
 default_cover_path: /images/default_cover.webp # 默认封面图路径/Default cover path
 icp_record: # ICP备案号/ICP record number (China mainland only)
-
-# 顶栏样式配置/Header style settings
-header:
+update-calendar: # 更新日历功能(基于GitHub公开仓库API)/Update calendar function(based on GitHub public repository API)
+  enable: true # 是否启用更新日历功能/Whether to enable update calendar function
+  github_repo: Steven-Zhl.github.io # 你的GitHub仓库名/Your GitHub repository name
+  github_owner: Steven-Zhl # 你的GitHub用户名/Your GitHub username
+header: # 顶栏样式配置/Header style settings
   menu: true # 是否显示菜单/Whether to display "Menu"
   about: true # 是否显示关于/Whether to display "About"
   archive: true # 是否显示归档/Whether to display "Archive"
   list-categories: false # 是否直接列出分类/Whether to list categories directly
-
-# 评论功能配置/Comment settings
-gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
+gitalk: # 评论功能配置/Comment settings # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
   enable: true # 是否启用Gitalk/Whether to enable Gitalk
   clientID: 79ba3639afa30c8c3593
   clientSecret: 25bbf25f184785a33f4ee2707540de0166cdb0a1
@@ -80,8 +80,11 @@ mathjax: # MathJax(数学公式)
   enable: true # 是否允许渲染数学公式/Whether to enable render formula
 jekyll-mermaid: # Jekyll Mermaid(绘图功能)
   enable: true # 是否启用绘图功能/Whether to enable drawing function
-feed: # Jekyll-Feed(RSS订阅功能)
+feed:
+  enable: true # 是否启用RSS订阅功能/Whether to enable RSS subscription function
   posts_limit: 10 # RSS订阅的文章数量上限/Number of articles for RSS subscription
   tags:
     except:
       - test
+  # Jekyll-Feed(RSS订阅功能)，如果不想使用RSS功能，请删除本段以及plugins、Gemfile和Gemfile.lock中的`jekyll-feed`
+  # Jekyll-Feed(RSS subscription function), if you don't want to use RSS function, please delete this section and `jekyll-feed` in plugins, Gemfile and Gemfile.lock

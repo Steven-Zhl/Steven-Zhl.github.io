@@ -6,6 +6,7 @@ en: # 英文/English
   continue-reading: "Continue Reading"
   home: "Home"
   menu: "Menu"
+  month-view: "Month View"
   more: "More"
   most-categories: "Most Categories"
   most-tags: "Most Tags"
@@ -19,6 +20,8 @@ en: # 英文/English
   statistics: "Statistics"
   tags: "Tags"
   test: "test"
+  update-calendar: "Update Calendar"
+  year-view: "Year View"
 
 zh-Hans: # 简体中文/Simplified Chinese
   about: "关于"
@@ -28,6 +31,7 @@ zh-Hans: # 简体中文/Simplified Chinese
   continue-reading: "继续阅读"
   home: "首页"
   menu: "菜单"
+  month-view: "月视图"
   more: "更多"
   most-categories: "最多的类别"
   most-tags: "最多的标签"
@@ -41,6 +45,8 @@ zh-Hans: # 简体中文/Simplified Chinese
   statistics: "统计信息"
   tags: "标签"
   test: "测试"
+  update-calendar: "更新日历"
+  year-view: "年视图"
 
 zh-Hant: # 繁体中文/Traditional Chinese
   about: "關於"
@@ -50,6 +56,7 @@ zh-Hant: # 繁体中文/Traditional Chinese
   continue-reading: "繼續閱讀"
   home: "首頁"
   menu: "菜單"
+  month-view: "月視圖"
   more: "更多"
   most-categories: "最多的類別"
   most-tags: "最多的標籤"
@@ -63,3 +70,5 @@ zh-Hant: # 繁体中文/Traditional Chinese
   statistics: "統計信息"
   tags: "標籤"
   test: "測試"
+  update-calendar: "更新日曆"
+  year-view: "年視圖"
