@@ -30,13 +30,18 @@ category: 机器学习
 
 |术语|含义|
 |:---:|:---:|
-|stack|堆叠/堆积，不要翻译成“堆栈”，那是计算机组成原理的东西。在这里指一种结构：某种“块”连续地串行排列，按照这种结构进行运算。|
-|encoder|编码器，在Transformer中的一种结构，用于将输入序列转换为向量表示。|
-|decoder|解码器，在Transformer中的一种结构，用于将向量表示转换为输出序列。|
-|auto-regressive|自回归，指模型的输出依赖于之前的输出，这一特点在Decoder生成输出的过程中有所体现。|
-|sequence transduction models|序列转换模型，指的是输入是序列，输出也是序列的一类模型，看得出来这是单纯从输入和输出的角度来定义的。|
+|Attention|注意力机制，指模型在生成输出时，对输入序列中不同位置的信息赋予不同的权重。|
+|Auto-Regressive|自回归，指模型的输出依赖于之前的输出，这一特点在Decoder生成输出的过程中有所体现。|
+|Decoder|解码器，在Transformer中的一种结构，用于将向量表示转换为输出序列。|
+|Encoder|编码器，在Transformer中的一种结构，用于将输入序列转换为向量表示。|
+|FC/Fully-Connection|全连接层，神经网络中一种常见的结构，每个神经元与上一层的所有神经元相连，这种结构的优点是参数多，表达能力强，缺点是计算量大。|
+|Multi-Head Attention|多头注意力机制，是Transformer中的一种结构，用于增加模型的表达能力。|
+|MLP/Multi-Layer Perceptron|多层感知机，神经网络中一种常见的结构，由多个全连接层(FC)组成。|
+|Self-Attention|自注意力机制，是Transformer的核心，用于捕捉序列中的长距离依赖关系。|
+|Sequence Transduction Models|序列转换模型，指的是输入是序列，输出也是序列的一类模型，看得出来这是单纯从输入和输出的角度来定义的。|
+|Stack|堆叠/堆积，不要翻译成“堆栈”，那是计算机组成原理的东西。在这里指一种结构：某种“块”连续地串行排列，按照这种结构进行运算。|
 
-## 10.1 Transformer介绍
+## 10.1 模型介绍
 
 > * 在原始论文《Attention Is All You Need》中，Transformer模型被提出，并且用来完成机器翻译任务。因此下面的内容将以机器翻译任务为例，用以详细介绍Transformer模型。
 > * 当然，现在Transformer模型已经被广泛运用在各种序列数据中了(如时序数据、文本数据等)。
@@ -44,35 +49,44 @@ category: 机器学习
 
 ### 10.1.1 模型整体结构
 
-![Transformer原始结构](/images/机器学习/10-Transformer模型结构.webp "我相信这个图可能各位都快看吐了，但我还是要贴一下，因为这个图很能说明问题")
-
-* 以上，是Transformer原论文中的配图，其中左侧为Encoder，右侧为Decoder，我比较喜欢先整体后细节的方式，所以这一小节咱们只看整体结构和输出。
-  > The Transformer follows this overall architecture using stacked self-attention and point-wise, fully connected layers for both the encoder and decoder, shown in the left and right halves of Figure 1, respectively.
+![Transformer原始结构](/images/机器学习/10_Transformer模型结构.webp "我相信这个图可能各位都快看吐了，但我还是要贴一下，因为这个图很能说明问题")
+  > "The Transformer follows this overall architecture using stacked self-attention and point-wise, fully connected layers for both the encoder and decoder, shown in the left and right halves of Figure 1, respectively."
   >
-  > Transformer遵循这一整体架构，编码器和解码器都使用堆叠自注意力、逐点(姑且这么翻译)、全连接层，分别如图1的左半部分和右半部分所示。
-* Encoder：对于左侧的Encoder，其输入均来自上一层Encoder的输出(第一层Encoder的输入为原始输入序列)，也就是图中**Input Embedding+Positional Encoding**的结果。
-* Decoder：而对于右侧的Decoder，我们能注意到一个不同的地方：它的输入不仅来自左边Encoder，同时还包括了一个**Output Embedding+Positional Encoding**。这其实就是Auto-regressive(自回归)的体现。它表示的意思是，Decoder每生成一个$y_i$，都会将其加入到下一时刻的输入中，也就是说，对于Decoder生成的第$t$个输出$y_t$，其“Output Embedding”实际上是$y_1,y_2,...,y_{t-1}$的向量表示。
-  > 这里沐神总结的非常好：“在过去时刻的输出，也会作为当前时刻的输入”。
-* 输出：通常来说，Decoder输出的仍然是一个序列，因为Transformer仍然是一种**sequence transduction models**模型，比如在机器翻译任务中，Transformer的输入是德语，输出是英语，二者都是文本(序列数据)，如下图简化结构所示。但是上图我们能看到，在Decoder的输出后面，又套了一个Linear层，然后再套一个Softmax，得到Output Probabilities。这是因为在机器翻译任务中，Decoder每次实际输出的是一个向量(logits)，每个数表示一个单词的分数，随后通过Softmax将其转换为概率，并选择概率最高的单词作为本次的输出。
+  > “Transformer遵循这一整体架构，编码器和解码器都使用堆叠自注意力、逐点(姑且这么翻译)、全连接层，分别如图1的左半部分和右半部分所示。”
 
-![Transformer结构](/images/机器学习/10-Transformer结构简化版.webp "Transformer简化结构")
+* 以上是Transformer原论文中的配图，其中左侧为$\text{Encoder}$，右侧为$\text{Decoder}$，我比较喜欢先整体后细节的方式，所以这一小节咱们只看整体结构和输入输出。
 
-* Encoders：若干个Encoder层，将输入序列生成隐层空间的表示
-* Decoders：若干个Decoder层，将隐层空间的表示转换为输出序列
-* 特点：Encoder和Decoder经过多层编码/解码，feature map的大小不变
+1. **Encoder**：对于左侧的$\text{Encoder}$，其输入均来自上一层$\text{Encoder}$的输出(第一层$\text{Encoder}$的输入为原始输入序列)，也就是图中**$\text{Input Embedding+Positional Encoding}$**的结果。
+2. **Decoder**：而对于右侧的$\text{Decoder}$，我们能注意到一个不同的地方：它的输入不仅来自左边$\text{Encoder}$，同时还包括了一个**$\text{Output Embedding+Positional Encoding}$**。这其实就是**$\text{Auto-regressive}$**(自回归)的体现。它表示的意思是，$\text{Decoder}$每生成一个$y_i$，都会将其加入到下一时刻的输入中，也就是说，对于$\text{Decoder}$生成的第$t$个输出$y_t$，其“$\text{Outputs (Shifted right)}$”实际上是$(y_1,y_2,...,y_{t-1})$的向量表示。
+    > 这里沐神总结的非常好：“在过去时刻的输出，也会作为当前时刻的输入”。
+    * 此外，李沐老师提到，在解码器做**预测任务**时是没有输入的，此时的“$\text{Outputs (Shifted right)}$”是解码器在之前的时刻生成的输出，而“$\text{Shifted right}$”表示的是先前的输出作为此时的输入，是“一个一个往右移”地输入。
+3. **输出**：因为Transformer仍然是一种**$\text{sequence transduction models}$**模型，因此通常来说$\text{Decoder}$输出的仍然是一个序列。比如在机器翻译任务中，Transformer的输入是一句德语，输出是一句英语，二者都是文本(序列数据)，如下图简化结构所示。但是上图我们能看到，在$\text{Decoder}$的输出后面，又套了一个$\text{Linear}$层，然后再套一个$\text{Softmax}$，得到$\text{Output Probabilities}$。这是因为在机器翻译任务中，$\text{Decoder}$每次实际输出的是一个向量(logits)，该向量中每个数表示一个单词的分数，随后通过Softmax将其转换为概率，并选择概率最高的单词作为本次的输出。
+4. **补充**：最后，我们还能注意到在$\text{Decoder}$和$\text{Encoder}$旁边都有一个$N\times$，这表示实际的Transformer中，编解码器实际上是“$\text{Encoders}$”和“$\text{Dncoders}$”，是若干个$\text{Encoder}$和$\text{Decoder}$堆叠在一起的。在原始论文里，作者使用了6个$\text{Encoder}$和6个$\text{Decoder}$。
+
+![Transformer结构](/images/机器学习/10_Transformer结构简化版.webp "Transformer简化结构")
+
+* 所以总结一下就是：
+  * Encoders：若干个Encoder层，将输入序列生成隐层空间的表示。
+  * Decoders：若干个Decoder层，将隐层空间的表示转换为输出序列
+  * 特点：Encoder和Decoder经过多层编码/解码，feature map的大小不变
 
 ### 10.1.2 Encoder结构
 
-> 我想，首先我们要知道，Encoder(编码器)是干嘛的？
+> 这节咱们分析一下Encoder的结构啊，我还是觉得原论文的图做的好，咱就接着截原论文的图。
 
-* 简单来说，Encoder是将输入序列(记作$x_1,...x_n$)转换为向量表示(记作$z_1,...z_n$)。因为当前的各种模型都无法对自然语言直接处理，必须要转换为向量表示。
+![Encoder结构](/images/机器学习/10_Encoder结构图.webp "Encoder结构图")
+  > 如截图所示的这么一个框，咱们把它叫做一个block，一个块。
 
-![5.Ex3_Transformer_Encoder结构](/images/机器学习/5.Ex3_Transformer_Encoder结构.jpg)
+* 首先一眼能看到的是里面包括了一个**$\text{Multi-Head Attention}$**(多头注意力模块)和一个**$\text{Feed Forward}$**(前馈神经网络模块，其实是一个全连接层)。那么至于什么是多头注意力，以及为什么要来个全连接层，咱们后面会详细讲解的。
+* 简单来说，Encoder是将输入序列$X(x_1,...,x_n)$转换为向量表示$Z(z_1,...,z_n)$。
+  * 接触过NLP的同学可能会奇怪：将自然语言转换成向量表示，这不是embedding吗，哪里是Encoder应该做的？说的没错，实际上输入序列$X(x_1,...,x_n)$已经是词向量序列了，是经过预处理过程中`Word2Vec`或者其他词嵌入算法得到的。
+  * 但是注意，从意义上来讲，`Word2Vec`以及其他算法只是将文字(Plain text)转换为向量表示，而$Encoder$则是利用$\text{Self-Attention}$，将每个词向量转换成了另一种向量，后文在Self-Attention中会讲这个向量$Z$的含义，当你理解了该向量的含义后，$X$和$Z$的区别、计算$Z$的意义就一目了然了。
 
-* Encoder结构包括 `Self-Attention`和 `Feed Forward Neural Network`两个部分。
-* `Self-Attention`模块将数据通过运算得到一个加权的特征向量$Z$
-  * $Z=Attention(Q,K,V)=\text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$
-* 随后Z将会被送到 `Feed Forward Neural Network`中进行处理，这个模块是个2层全连接层，第一层用ReLU激活，第二层使用线性激活函数。
+$$Z=\text{Attention}(Q,K,V)=\text{Softmax}(\frac{QK^\top}{\sqrt{d_k}})V$$
+
+* 随后Z将会被送到$\text{Feed Forward Neural Network}$中进行处理，这个模块是个2层MLP，第一层用ReLU激活，第二层使用线性激活函数。
+* 这个模块的作用是让模型学到更复杂的特征，因为$\text{Multi-Head Attention}$中只是只有**线性变换**(矩阵乘法)，因此非线性变换是必要的。
+* 所以严格来说，是$\text{Multi-Head Attention}$把$X$转换成了$Z$，而$\text{Feed Forward Neural Network}$则将$Z$映射到了$R(r_1,...,r_n)$。
 
 ### 10.1.3 Decoder结构
 
@@ -80,7 +94,7 @@ category: 机器学习
 
 ## 10.2 自注意力机制(Self-Attention)
 
-> 顾名思义，计算注意力时，信息全部来自"自己"
+> Self-Attention是Transformer的核心，也是其最大的创新之一。它的提出解决了RNN系列模型的长距离依赖问题，同时也使得Transformer能够并行计算。
 
 * 每个单词有3个不同的向量
 
@@ -123,7 +137,7 @@ category: 机器学习
 > 分析与解答
 
 * Self-Attention的运算过程如下：
-  * Transformer为每个词向量都分配三个权重矩阵：$W^Q,W^K,W^V$，将每个词向量分别与这三个权重矩阵相乘，得到$q_i,k_i,v_i$；然后对于序列中的每一个词$x_i$计算其权重：$\text{attention}_i=\text{Softmax}\left(\frac{Q\cdot K^T}{\sqrt{d_k}}\right)$。实际得到$attention$系数矩阵，最后按照$Z=attention\cdot V$得到输出。
+  * Transformer为每个词向量都分配三个权重矩阵：$W^Q,W^K,W^V$，将每个词向量分别与这三个权重矩阵相乘，得到$q_i,k_i,v_i$；然后对于序列中的每一个词$x_i$计算其权重：$\text{attention}_i=\text{Softmax}\left(\frac{Q\cdot K^\top}{\sqrt{d_k}}\right)$。实际得到$attention$系数矩阵，最后按照$Z=attention\cdot V$得到输出。
 * 在Transformer中，其Encoder和Decoder都使用了Self-Attention机制。
   * 在编码阶段，每个词向量经过编码后都包含了其对于整个序列的相关性信息。
   * 在预测阶段，Decoder会接收来自Encoder传入的Q、K矩阵，使得进行每一次预测时，模型拥有了对于之前序列的全局信息，从而避免了像RNN一样对于长序列编码过程中信息丢失的问题。
@@ -146,7 +160,9 @@ category: 机器学习
 
 ## References
 
+* [从零开始了解transformer的机制|第四章：FFN层的作用-CSDN博客](https://blog.csdn.net/weixin_73179708/article/details/132516512)
 * [详解Transformer （Attention Is All You Need） - 知乎](https://zhuanlan.zhihu.com/p/48508221)
 * [Self-Attention和Transformer \| machine-learning-notes](https://luweikxy.gitbook.io/machine-learning-notes/self-attention-and-transformer)
 * [Transformer论文逐段精读【论文精读】](https://www.bilibili.com/video/BV1pu411o7BE)
 * [细节拉满，全网最详细的Transformer介绍（含大量插图）！ - 知乎](https://zhuanlan.zhihu.com/p/681532180)
+* [超详细图解Self-Attention - 知乎](https://zhuanlan.zhihu.com/p/410776234)
