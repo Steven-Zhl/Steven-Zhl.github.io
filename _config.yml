@@ -77,9 +77,9 @@ simple-jekyll-search: # Simple Jekyll Search(搜索功能)
   enable: true # 是否启用搜索功能/Whether to enable search function
   result_limit: 10 # 搜索结果的显示上限/Display limit of search results
 mathjax: # MathJax(数学公式)
-  enable: true # 是否允许渲染数学公式/Whether to enable render formula
+  enable: true # 是否默认开启渲染数学公式(全局配置)/Whether to enable rendering mathematical formulas by default (global configuration)
 jekyll-mermaid: # Jekyll Mermaid(绘图功能)
-  enable: true # 是否启用绘图功能/Whether to enable drawing function
+  enable: false # 是否默认启用绘图功能(全局配置)/Whether to enable drawing function by default (global configuration)
 feed:
   enable: true # 是否启用RSS订阅功能/Whether to enable RSS subscription function
   posts_limit: 10 # RSS订阅的文章数量上限/Number of articles for RSS subscription
