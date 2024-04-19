@@ -1,9 +1,12 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <title>配色画板</title>
+    <title>配色画廊 | {{ site.title }}</title>
 </head>
 
 <body>
@@ -30,14 +33,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+    }
 
-        h2 {
-            width: 100%;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: xx-large;
-        }
+    .container h2 {
+        width: 100%;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: xx-large;
     }
 
     .item {
@@ -49,30 +52,30 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
 
-        p {
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: larger;
-            visibility: hidden;
-        }
+    .item p {
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: larger;
+        visibility: hidden;
+    }
 
-        p.white {
-            color: white;
-        }
+    .item p.white {
+        color: white;
+    }
 
-        p.black {
-            color: black;
-        }
+    .item p.black {
+        color: black;
     }
 
     .item:hover {
         transform: scale(1.05);
+    }
 
-        p {
-            visibility: visible;
-        }
+    .item:hover p {
+        visibility: visible;
     }
 </style>
 <script>
