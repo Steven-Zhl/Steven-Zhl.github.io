@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>配色画板</title>
+</head>
+
+<body>
+    <div class="container" id="morandi-container">
+        <h2>Morandi Colors</h2>
+    </div>
+    <div class="container" id="flower-container">
+        <h2>Flower Colors</h2>
+    </div>
+    <div class="container" id="famous-container">
+        <h2>Some famous Colors</h2>
+    </div>
+</body>
+<style>
+    body {
+        background-size: cover;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: xx-large;
+        }
+    }
+
+    .item {
+        flex: 1 0 200px;
+        margin: 10px;
+        height: 100px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: larger;
+            visibility: hidden;
+        }
+
+        p.white {
+            color: white;
+        }
+
+        p.black {
+            color: black;
+        }
+    }
+
+    .item:hover {
+        transform: scale(1.05);
+
+        p {
+            visibility: visible;
+        }
+    }
+</style>
+<script>
+
+    const morandiColors = [ // 莫兰蒂配色
+        0xaad3f6, 0x214288, 0xf0cbc5, 0xb8778d,
+        0xe698b1, 0x9e9bd2, 0xc3aae1, 0x7e78a7,
+        0x1043ab, 0xaacbef, 0xeddfdd, 0xcc8984,
+        0xf9e1df, 0xc08691, 0x7b5b6d, 0xd5f1fd,
+        0x708089, 0xe1cbb1, 0xcad5dc, 0xedece8,
+        0xdccdc6, 0xc9deeb, 0xebebe4, 0x8b7d86,
+        0xf2af9b, 0xf2cd89, 0x67a3d7, 0xd0e5f2,
+        0xbbcdc5, 0xf4e881, 0xf2a984, 0xb4cfe9
+        // https://www.bilibili.com/video/BV1Nx4y1L71J
+    ];
+    const flowerColors = [ // 鲜花配色
+        0xecece0, 0x527d35, 0xb5cea7, 0xb2d1ed, 0x739a6d, 0xacb502, 0x8fbcd3,
+        // https://www.bilibili.com/video/BV1dj42197CA
+        0x83b091, 0xb8c7ca, 0x2a6b49, 0xe78c74, 0x527d35, 0x88bddc, 0xf6f6f4, 0xdd692d, 0xb5cea7, 0xecebe1, 0x2987bd, 0xe44e33,
+        // https://www.bilibili.com/video/BV1Qx421y7Wx
+    ];
+    const famousColors = { // 一些比较有名的颜色
+        "马尔斯绿": 0x01847f, "普鲁士蓝": 0x003153, "爱马仕橙": 0xE85827, "提香红": 0xD44848, "那不勒斯黄": 0xF6C91C,
+        "克莱因蓝": 0x002fa7, "勃艮第红": 0x7F0020, "申布伦黄": 0xFBD26A, "凡戴克棕": 0x492D22, "蒂芙尼蓝": 0x81D8D0,
+        "中国红": 0xff0000, "初音绿": 0x39c5bb, "天依蓝": 0x66ccff
+    }
+    function setBackgroundImage() {
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const now = new Date();
+        const timeStamp = `${now.getDate()}-${monthNames[now.getMonth()]}-${now.getFullYear()}`;
+        document.body.style.backgroundImage = `url(https://bing-cdn.suibofuchen.com/bing/${timeStamp}/${timeStamp}.jpg)`;
+    }
+
+    function luminosity(color) { // 计算颜色的亮度
+        const r = (color >> 16) & 0xff;
+        const g = (color >> 8) & 0xff;
+        const b = color & 0xff;
+        return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    function buildColorTable(colors, containerID) {
+        const dispColors = [...new Set(colors)];
+        dispColors.sort((a, b) => luminosity(b) - luminosity(a));
+        const containerElem = document.getElementById(containerID);
+        for (let i = 0; i < dispColors.length; i++) {
+            const color = dispColors[i];
+            const itemElem = document.createElement('div');
+            const itemDispElem = document.createElement('p');
+            // 修改itemDisp的属性
+            itemDispElem.innerText = '#' + color.toString(16).padStart(6, '0').toUpperCase();
+            luminosity(color) < 128 ? itemDispElem.classList.add('white') : itemDispElem.classList.add('black');
+            // 修改item的属性
+            itemElem.classList.add('item');
+            itemElem.style.backgroundColor = '#' + color.toString(16).padStart(6, '0');
+            itemElem.onclick = () => { navigator.clipboard.writeText(color.toString(16).toUpperCase()); }
+            itemElem.appendChild(itemDispElem);
+            containerElem.appendChild(itemElem);
+        }
+    }
+    function buildFamousColorTable(colors, containerID) {
+        const dispColorNames = [...new Set(Object.keys(colors))];
+        const containerElem = document.getElementById(containerID);
+        for (let i = 0; i < dispColorNames.length; i++) {
+            const colorName = dispColorNames[i];
+            const itemElem = document.createElement('div');
+            const itemDispElem = document.createElement('p');
+            // 修改itemDisp的属性
+            itemDispElem.innerHTML = colorName + ':' + '#' + colors[colorName].toString(16).padStart(6, '0').toUpperCase();
+            luminosity(colors[colorName]) < 128 ? itemDispElem.classList.add('white') : itemDispElem.classList.add('black');
+            // 修改item的属性
+            itemElem.classList.add('item');
+            itemElem.style.backgroundColor = '#' + colors[colorName].toString(16).padStart(6, '0');
+            itemElem.onclick = () => { navigator.clipboard.writeText(colors[colorName].toString(16).padStart(6, '0').toUpperCase()); }
+            itemElem.appendChild(itemDispElem);
+            containerElem.appendChild(itemElem);
+        }
+    }
+    setBackgroundImage();
+    buildColorTable(morandiColors, 'morandi-container');
+    buildColorTable(flowerColors, 'flower-container');
+    buildFamousColorTable(famousColors, 'famous-container')
+</script>
+
+</html>
