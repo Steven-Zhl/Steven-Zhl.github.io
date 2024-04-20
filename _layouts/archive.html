@@ -54,15 +54,18 @@
         </section>
     </div>
 
+    {% if site.icp_record %}
+    {% include icp-record-footer.html %}
+    {% endif %}
+
     <!-- Scripts -->
     <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/util.js"></script>
     <script src="{{ site.baseurl }}/assets/js/main.js"></script>
-    {% include archive-script.html %}
-    {% if site.simple-jekyll-search.enable %} {% include search-script.html %} {% endif %}
-    {% if site.icp_record %} {% include icp-record-footer.html %} {% endif %}
+    {% include _archive-script.html %}
+    {% include _search-script.html %}
 </body>
 
 </html>

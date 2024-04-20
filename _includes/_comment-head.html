@@ -3,8 +3,9 @@
 <!-- Gitalk -->
 <link href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-{% endif %}
-{% if site.comment.provider == "disqus" %}
+{% elsif site.comment.provider == "disqus" %}
 <!-- Disqus -->
+{% elsif site.comment.provider == "livere" %}
+<!-- Livere -->
 {% endif %}
 {% endif %}

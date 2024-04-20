@@ -22,21 +22,20 @@
         <!-- Footer -->
         {% include footer.html %}
     </div>
+
+    {% if site.icp_record %}
+    {% include icp-record-footer.html %}
+    {% endif %}
+
     <!-- Scripts -->
     <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
     <script src="{{ site.baseurl }}/assets/js/util.js"></script>
     <script src="{{ site.baseurl }}/assets/js/main.js"></script>
-    {% if site.simple-jekyll-search.enable %}
-    {% include search-script.html %}
-    {% endif %}
-
+    {% include _search-script.html %}
     {% include _comment-script.html %}
-
-    {% if site.icp_record %}
-    {% include icp-record-footer.html %}
-    {% endif %}
+    {% include _mathjax-script.html %}
 </body>
 
 </html>

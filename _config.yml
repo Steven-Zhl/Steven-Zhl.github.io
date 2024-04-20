@@ -48,9 +48,7 @@ paginate_path: "/page/:num/" # 分页的URL格式/Paging URL format
 # 本项目的一些配置。/Some settings of this project.
 lang: zh-Hans # ( <html lang=""> ) html元素的lang特性。/HTML element lang attribute.
 localization: zh-Hans # 本地化显示，可选项：en(英文), zh-Hans(简体中文), zh-Hant(繁体中文)。/Localization display, optional: en (English), zh-Hans (Simplified Chinese), zh-Hant (Traditional Chinese).
-# 文章简介的样式，如果你喜欢在每篇文章前写一个“blockquote”作为引言(> XXX)，建议使用这种样式，否则建议用“"post.content | strip_html | truncatewords: 50"”
-# The style of the article introduction, if you like to write a "blockquote" as a quotation before each article (> XXX), it is recommended to use this style, otherwise it is recommended to use '"post.content | strip_html | truncatewords: 50"'
-article_introduction_format: post.excerpt
+article_introduction_format: post.excerpt # 文章简介的样式，如果你喜欢在每篇文章前写一个“blockquote”作为引言(> XXX)，建议使用这种样式，否则建议用"post.content | strip_html | truncatewords: 50"/The style of the article introduction, if you like to write a "blockquote" as a quotation before each article (> XXX), it is recommended to use this style, otherwise it is recommended to use "post.content | strip_html | truncatewords: 50"
 article_catalogue: true # 是否在侧边菜单展示文章目录/Whether to display the article catalogue in the sidebar menu
 default_cover_path: /images/default_cover.webp # 默认封面图路径/Default cover path
 icp_record: # ICP备案号/ICP record number (China mainland only)
@@ -58,15 +56,18 @@ update-calendar: # 更新日历功能(基于GitHub公开仓库API)/Update calend
   enable: true # 是否启用更新日历功能/Whether to enable update calendar function
   github_repo: Steven-Zhl.github.io # 你的GitHub仓库名/Your GitHub repository name
   github_owner: Steven-Zhl # 你的GitHub用户名/Your GitHub username
-header: # 顶栏样式配置/Header style settings
+
+# 顶栏样式配置/Header style settings
+header:
   menu: true # 是否显示菜单/Whether to display "Menu"
   about: true # 是否显示关于/Whether to display "About"
   archive: true # 是否显示归档/Whether to display "Archive"
   list-categories: false # 是否直接列出分类/Whether to list categories directly
 
-comment: # 评论功能配置/Comment settings
+ # 评论功能配置/Comment settings
+comment:
   enable: true # 是否启用评论功能/Whether to enable comment function
-  provider: disqus # 选择使用的评论系统，可选项：gitalk, disqus/Select the comment system to use, optional: gitalk, disqus
+  provider: disqus # 选择使用的评论系统，可选项：gitalk, disqus, livere/Select the comment system to use, optional: gitalk, disqus, livere
 gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
   client_ID: 79ba3639afa30c8c3593
   client_secret: 25bbf25f184785a33f4ee2707540de0166cdb0a1
@@ -75,6 +76,8 @@ gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改
 disqus: # Disqus(https://disqus.com/)相关配置，请自行修改。/Disqus settings, please modify it.
   shortname: Steven-Zhl # 你的Disqus站点的shortname，注册Disqus时会被分配一个'https://<shortname>.disqus.com的站点'/Shortname of your Disqus site, you will be assigned a site 'https://<shortname>.disqus.com' when you register Disqus
   canonical_url: "https://Steven-Zhl.github.io" # 你的博客的规范URL/Canonical URL of your blog
+livere: # 来必力City版(https://livere.com/)相关配置，请自行修改。/Livere City version settings, please modify it.
+  data-uid: 'MTAyMC81OTc3MS8zNjIzMw==' # 你的来必力data-uid/Your Livere data-uid
 
 # 其他插件配置/Other plugins settings
 simple-jekyll-search: # Simple Jekyll Search(搜索功能)

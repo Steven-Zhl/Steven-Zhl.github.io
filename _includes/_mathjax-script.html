@@ -1,0 +1,33 @@
+{% if page.mathjax == true %}
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    inlineMath: [['$','$']]
+    }
+});
+</script>
+<style>
+  .mjx-chtml.MJXc-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+{% elsif page.mathjax == nil and site.mathjax.enable == true %}
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+    });
+</script>
+<style>
+  .mjx-chtml.MJXc-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
+{% endif %}

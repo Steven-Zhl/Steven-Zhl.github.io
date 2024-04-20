@@ -1,0 +1,7 @@
+{% if page.mathjax == true %}
+<!-- MathJax -->
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+{% elsif page.mathjax == nil and site.mathjax.enable == true %}
+<!-- MathJax -->
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+{% endif %}

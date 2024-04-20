@@ -1,0 +1,7 @@
+{% if page.mermaid == true %}
+<!-- Mermaid -->
+<script async src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
+{% elsif page.mermaid == nil and site.jekyll-mermaid.enable == true %}
+<!-- Mermaid -->
+<script async src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
+{% endif %}

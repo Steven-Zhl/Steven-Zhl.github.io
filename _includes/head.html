@@ -18,20 +18,8 @@
     {% endif %}
 
     {% include _comment-head.html %}
-
-    {% if page.mathjax == true %}
-    {% include mathjax.html %}
-    {% elsif page.mathjax == nil and site.mathjax.enable == true %}
-    {% include mathjax.html %}
-    {% endif %}
-
-    {% if page.mermaid == true %}
-    <!-- Mermaid -->
-    <script async src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
-    {% elsif page.mermaid == nil and site.jekyll-mermaid.enable == true %}
-    <!-- Mermaid -->
-    <script async src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
-    {% endif %}
+    {% include _mathjax-head.html %}
+    {% include _mermaid-head.html %}
 
     <!-- 感谢bootcdn提供的免费webfont cdn服务 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
