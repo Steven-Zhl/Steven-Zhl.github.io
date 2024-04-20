@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /一蓑烟雨任平生/
+Disallow: /about
+Disallow: /archive
+Disallow: /?query=*
