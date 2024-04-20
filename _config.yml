@@ -73,7 +73,8 @@ gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改
   repo: Steven-Zhl.github.io
   owner: Steven-Zhl
 disqus: # Disqus(https://disqus.com/)相关配置，请自行修改。/Disqus settings, please modify it.
-  shortname: steven-zhl
+  shortname: Steven-Zhl # 你的Disqus站点的shortname，注册Disqus时会被分配一个'https://<shortname>.disqus.com的站点'/Shortname of your Disqus site, you will be assigned a site 'https://<shortname>.disqus.com' when you register Disqus
+  canonical_url: "https://Steven-Zhl.github.io" # 你的博客的规范URL/Canonical URL of your blog
 
 # 其他插件配置/Other plugins settings
 simple-jekyll-search: # Simple Jekyll Search(搜索功能)
