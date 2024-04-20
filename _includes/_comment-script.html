@@ -1,0 +1,32 @@
+{% if site.comment.enable and page.title %}
+{% if site.comment.provider == "gitalk" %}
+<script>
+    // Gitalk
+    var gitalk = new Gitalk({
+        clientID: "{{ site.gitalk.client_ID }}",
+        clientSecret: "{{ site.gitalk.client_secret }}",
+        repo: "{{ site.gitalk.repo }}",
+        owner: "{{ site.gitalk.owner }}",
+        admin: ["{{ site.gitalk.owner }}"],
+        id: '{{ page.date | date: "%Y%m%d%H%M%S" }}',
+        distractionFreeMode: false
+    });
+    gitalk.render("gitalk-container");
+</script>
+{% endif %}
+{% if site.comment.provider == "disqus" %}
+<script>
+    // Disqus
+    var disqus_config = function () {
+    this.page.url = 'https://Steven-Zhl.github.io'
+    this.page.identifier = '{{ page.date | date: "%Y%m%d%H%M%S" }}';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://steven-zhl.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+{% endif %}
+{% endif %}

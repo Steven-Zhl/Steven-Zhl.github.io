@@ -63,14 +63,17 @@ header: # 顶栏样式配置/Header style settings
   about: true # 是否显示关于/Whether to display "About"
   archive: true # 是否显示归档/Whether to display "Archive"
   list-categories: false # 是否直接列出分类/Whether to list categories directly
-gitalk: # 评论功能配置/Comment settings # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
-  enable: true # 是否启用Gitalk/Whether to enable Gitalk
-  clientID: 79ba3639afa30c8c3593
-  clientSecret: 25bbf25f184785a33f4ee2707540de0166cdb0a1
+
+comment: # 评论功能配置/Comment settings
+  enable: true # 是否启用评论功能/Whether to enable comment function
+  provider: disqus # 选择使用的评论系统，可选项：gitalk, disqus/Select the comment system to use, optional: gitalk, disqus
+gitalk: # Gitalk(https://github.com/gitalk/gitalk)相关配置，请自行修改。/Gitalk settings, please modify it.
+  client_ID: 79ba3639afa30c8c3593
+  client_secret: 25bbf25f184785a33f4ee2707540de0166cdb0a1
   repo: Steven-Zhl.github.io
   owner: Steven-Zhl
-disqus: # 目前暂不支持disqus/Disqus is not supported yet.
-  enable: false # Disqus
+disqus: # Disqus(https://disqus.com/)相关配置，请自行修改。/Disqus settings, please modify it.
+  shortname: steven-zhl
 
 # 其他插件配置/Other plugins settings
 simple-jekyll-search: # Simple Jekyll Search(搜索功能)

@@ -17,11 +17,7 @@
     {% feed_meta %}
     {% endif %}
 
-    {% if site.gitalk.enable and page.title %}
-    <!-- Gitalk -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script async src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    {% endif %}
+    {% include _comment-head.html %}
 
     {% if page.mathjax == true %}
     {% include mathjax.html %}

@@ -1,0 +1,10 @@
+{% if site.comment.enable and page.title %}
+{% if site.comment.provider == "gitalk" %}
+<!-- Gitalk -->
+<div id="gitalk-container"></div>
+{% endif %}
+{% if site.comment.provider == "disqus" %}
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+{% endif %}
