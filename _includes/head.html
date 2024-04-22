@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
     <link rel="icon" href="{{ site.baseurl }}/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/syntax.css" />
-    <!--Meta Description-->
+    <!-- SEO Tag -->
+    {% seo %}
+    <!-- Meta Description -->
     {% if page.description %}
     <meta name="description" content="{{ page.title }}:{{ page.description }}. {{ site.title }}">
     {% else %}

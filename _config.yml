@@ -28,6 +28,7 @@ weibo_account: # 微博账号(微博账号，不是微博id)/Weibo account(A Chi
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-seo-tag
 exclude: # Jekyll构建时应该被排除的文件/Files that should be excluded when Jekyll is built
   - .sass-cache/
   - .jekyll-cache/
@@ -64,7 +65,7 @@ header:
   archive: true # 是否显示归档/Whether to display "Archive"
   list-categories: false # 是否直接列出分类/Whether to list categories directly
 
- # 评论功能配置/Comment settings
+# 评论功能配置/Comment settings
 comment:
   enable: true # 是否启用评论功能/Whether to enable comment function
   provider: disqus # 选择使用的评论系统，可选项：gitalk, disqus, livere/Select the comment system to use, optional: gitalk, disqus, livere
@@ -77,7 +78,7 @@ disqus: # Disqus(https://disqus.com/)相关配置，请自行修改。/Disqus se
   shortname: Steven-Zhl # 你的Disqus站点的shortname，注册Disqus时会被分配一个'https://<shortname>.disqus.com的站点'/Shortname of your Disqus site, you will be assigned a site 'https://<shortname>.disqus.com' when you register Disqus
   canonical_url: "https://Steven-Zhl.github.io" # 你的博客的规范URL/Canonical URL of your blog
 livere: # 来必力City版(https://livere.com/)相关配置，请自行修改。/Livere City version settings, please modify it.
-  data-uid: 'MTAyMC81OTc3MS8zNjIzMw==' # 你的来必力data-uid/Your Livere data-uid
+  data-uid: "MTAyMC81OTc3MS8zNjIzMw==" # 你的来必力data-uid/Your Livere data-uid
 
 # 其他插件配置/Other plugins settings
 simple-jekyll-search: # Simple Jekyll Search(搜索功能)

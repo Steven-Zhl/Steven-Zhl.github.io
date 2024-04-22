@@ -93,10 +93,36 @@ def root_mean_squared_error(y_true, y_pred, *, sample_weight=None, multioutput="
 
 ### 2.1 Abstract
 
+> 摘要部分作者写的很短，主要是介绍了该研究领域的困境，并简单介绍了他们提出的新组件的效果。
+
 <details>
 <summary>查看截图</summary>
 <img alt="STAEformer_Abstract" src="/images/机器学习/STAEformer_Abstract.png">
 </details>
+
+* 作者在这一段指出了一个现状：在近年来的有关**交通流量预测**的研究中，神经网络的结构越来越复杂，但是性能提升却越来越小。
+  > 结合下文作者提出的新组件和他们的创新点，颇有种“众人皆醉我独醒”的感觉。
+* 随后，作者引出了他们提出的一种新型组件：$spatio-temporal\ adaptive\ embedding$(暂称为**时空自适应嵌入**)，在使用~~香草变压器~~(哈哈，其实是$vanilla\ transformers$，即普通的Transformer模型)的情况下，在6个实际的数据集上取得了SOTA的性能。
+
+## 2.2 Introduction
+
+> 在本节，作者介绍了先前的一些工作，以及他们的工作的创新点。
+
+![先前相关模型的简化结构](/images/机器学习/STAEformer_先前相关模型的简化结构.webp)
+
+* $STGNNs$($Spatio-Temporal\ Graph\ Neural\ Networks$，时空图神经网络)和$Transformer-based\ Models$(基于$Transformer$的模型)都曾因其出色的性能而大受欢迎。
+* 随后研究者在此基础上投入了大量的精力，构建出了更“花哨”和复杂的模型，如$novel\ graph\ convolutions$(新颖的图卷积)、$learning\ graph\ structures$(学习图结构)、$efficient\ attention\ mechanism$(有效的注意力机制)等，但可惜的是这些改进带来的性能提升却越来越有限。
+* 这促使研究者将注意力从**复杂的模型设计**转移到**更有效的数据表示**上，本文的主要创新点就在这方面。
+  > 我觉得这是非常正确的，模型的结构决定了模型表达能力的上限，但是模型的实际表现和数据(特征)的表示同样有着密切的关系。在模型结构如何改进都无法带来性能提升的情况下，说明限制模型效果的瓶颈可能已经不在于模型的表达能力上了。
+* 作者将改进重点集中在$input\ embedding$(输入嵌入)上，提出了一种全新的嵌入$E_a$，时空自适应嵌入(关于$E_a$是如何起作用的，详见下一节)
+* 随后作者比较了前述的几种模型所采用的嵌入方式：
+  * $STGNNs$:
+    * **$E_f$**：$feature\ embedding$，特征嵌入，将原始输入映射到隐层
+  * $Transformer-based\ Models$:
+    * **$E_{tpe}$**：$Temporal\ positional\ encoding$，时间空间编码，还记得原始Transformer结构中的“Positional Encoding”吗？
+    * **$E_p$**：$Periodicity\ embedding$，周期性编码(很容易想到，交通流量一定是有周期性的，比如早晚高峰、周末等)
+    * **$E_f$**：$feature\ embedding$，特征嵌入
+    * **$E_s$**：$spatial\ embedding$，空间嵌入
 
 ## Reference
 
