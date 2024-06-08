@@ -23,7 +23,7 @@ category: 机器学习
 <summary>具体内容</summary>
 <ul>
   <li>之前看论文的时候都是先下载英文版的pdf，然后用DeepL或者其他翻译软件翻译成中文，但直接翻译pdf极易造成排版混乱，而且还要翻译版和原文档来回切换，实在是不太方便。</li>
-  <li>后来我发现，包括<a src="https://arxiv.org/">arXiv</a>、<a src="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE Xplore</a>、<a src="https://www.cnki.net/">中国知网</a>等很多常用的学术网站都提供了网页版的论文阅读，随后试了一下，沉浸式翻译在这些网页上均能提供很不错的翻译体验：</li>
+  <li>后来我发现，包括<a href="https://arxiv.org/">arXiv</a>、<a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE Xplore</a>、<a href="https://www.cnki.net/">中国知网</a>等很多常用的学术网站都提供了网页版的论文阅读，随后试了一下，沉浸式翻译在这些网页上均能提供很不错的翻译体验：</li>
   <img alt="沉浸式翻译" src="/images/机器学习/STAEformer_沉浸式翻译效果展示.webp">
   <li>以这篇《Attention is All You Need》在arXiv上的效果为例，可以看到不仅专有名词翻译的很准(堆栈、前馈网络、残差连接、层归一化等等)，而且公式也很好地保留了下来，几乎没有排版混乱的情况。</li>
 </ul>
@@ -97,14 +97,14 @@ def root_mean_squared_error(y_true, y_pred, *, sample_weight=None, multioutput="
 * 所以....数据集长这个样子：
   ![PeMS08数据集格式](/images/机器学习/PeMS08数据集格式.svg)
 
-|数据集 | 传感器数 | 时间戳数 | 时间范围 |
-|:---:|:---:|:---:|:---:|
-|METR-LA| 207 | 34272 | 2012/03-2012/06 |
-|PeMS-BAY | 325 | 52116 | 2017/01-2017/05 |
-|PeMS03 | 358 | 26209 | 2012/05-2012/07 |
-|PeMS04 | 307 | 16992 | 2018/01-2018/02 |
-|PeMS07 | 883 | 28224 | 2017/05-2017/08 |
-|PeMS08 | 170 | 17856 | 2016/07-2016/08 |
+|   数据集    | 传感器数 | 时间戳数  |      时间范围       |
+|:--------:|:----:|:-----:|:---------------:|
+| METR-LA  | 207  | 34272 | 2012/03-2012/06 |
+| PeMS-BAY | 325  | 52116 | 2017/01-2017/05 |
+|  PeMS03  | 358  | 26209 | 2012/05-2012/07 |
+|  PeMS04  | 307  | 16992 | 2018/01-2018/02 |
+|  PeMS07  | 883  | 28224 | 2017/05-2017/08 |
+|  PeMS08  | 170  | 17856 | 2016/07-2016/08 |
 
 ### 1.3 Transformer
 
@@ -120,7 +120,7 @@ def root_mean_squared_error(y_true, y_pred, *, sample_weight=None, multioutput="
 
 <details>
 <summary>查看截图</summary>
-<img alt="STAEformer_Abstract" src="/images/机器学习/STAEformer_Abstract.png">
+<img alt="STAEformer_Abstract" src="/images/机器学习/STAEformer_Abstract.webp">
 </details>
 
 * 作者在这一段指出了一个现状：在近年来的有关**交通流量预测**的研究中，神经网络的结构越来越复杂，但是性能提升却越来越小。
@@ -245,15 +245,42 @@ $$[X_{t-T+1},\dots,X_{t}] \xrightarrow[\theta]{\mathbb{F(\cdot)}} [X_{t+1},\dots
 
 * 上述两张表展示了STAEformer在不同数据集上的性能表现，可以看到STAEformer在六个数据集上的大多数指标中都取得了SOTA的性能，并且值得一提的是，STAEformer并未进行任何图结构的学习，并且结构也相对简单，训练速度也较快。
 
-### 4.3 Ablation Study
+### 4.3&4.4 Ablation Study
 
 > 这篇论文的消融实验做的比较有意思，不仅有(常规的)移除组件后的效果对比，还进行了$E_a$的可视化。
->
-> TODO: 由于时间关系，暂时先写到这部分，以后有时间再补上吧。
+
+* 作者提出了4种变体：
+    * **w/o $E_a$**: 移除时空自适应嵌入$E_a$。
+    * **w/o $E_p$**: 移除周期嵌入$E_p$(包括星期嵌入和时间戳嵌入)。
+    * **w/o $T-Trans$**: 移除时间Transformer层。
+    * **w/o $ST-Trans$**: 移除了时间Transformer层和空间Transformer层。
+  > 为什么没有单独移除空间Transformer层的变体呢？我在PeMS08上移除$S-Trans$后发现甚至性能会有一定的提升...哈哈，这有点尴尬
+
+![STAEformer_Ablation_Study](/images/机器学习/STAEformer_Ablation_Study.webp)
+
+* 根据上表可以看出，$E_a$在STAEformer中起到了至关重要的作用，移除后会出现最大幅度的性能下降，其次是$E_p$。
+
+![STAEformer_Ablation_Study_Visualization](/images/机器学习/STAEformer_Ablation_Study_Visualization.webp)
+
+* 上图是第二组消融实验的可视化结果，将$E_a$替换为了空间嵌入$E_s$。对于这两种模型，当沿时间轴$T$打乱原始输入后，$E_a$将会表现出更明显的性能下降，这说明$E_a$使得该模型对时间顺序更加敏感。
+
+![STAEformer_Ablation_Study_Visualization_2](/images/机器学习/STAEformer_Ablation_Study_Visualization_2.webp)
+
+* 上图是对$E_a$进行了可视化，分别是空间和时间维度上的可视化结果。
+    * 在空间维度上的可视化是利用了$\text{t-SNE}$算法，将高维的$E_a$映射到二维平面上，可以看到不同节点的嵌入自然形成集群(
+      我的理解就是“簇状分布”)，这和交通数据的空间特征相匹配(嗯....大概是吧)。
+    * 在时间维度上，作者绘制了12个输入帧之间的相关系数的热力图，图中每一帧都与附近的帧表现出较高的相关性，而距离越远相关性越低，这也说明了$E_a$对时间顺序的敏感性。
+
+## 5. Conclusion
+
+* 略
 
 ## Reference
+
+> 是本文的主要参考资料
 
 1. [评价指标 - MAE、MSE、RMSE、MRE - 知乎](https://zhuanlan.zhihu.com/p/652167878)
 2. [预测评价指标RMSE、MSE、MAE、MAPE、SMAPE-CSDN博客](https://blog.csdn.net/guolindonggld/article/details/87856780)
 3. [PEMs数据集 - emanlee - 博客园](https://www.cnblogs.com/emanlee/p/17923764.html)
 4. [[2308.10425] STAEformer: Spatio-Temporal Adaptive Embedding Makes Vanilla Transformer SOTA for Traffic Forecasting](https://arxiv.org/abs/2308.10425)
+5. [学习笔记：STAEformer - white514 - 博客园](https://www.cnblogs.com/white514/p/17776167.html)
