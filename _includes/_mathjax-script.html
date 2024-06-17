@@ -3,8 +3,9 @@
 <script>
   window.MathJax = {
     options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
-    loader: { load: ['input/tex', 'output/chtml'] },
-    tex: { inlineMath: [['$', '$']] }
+    loader: { load: ['input/tex', 'output/svg'] },
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
   };
 </script>
 {% elsif page.mathjax == nil and site.mathjax.enable == true %}
@@ -12,8 +13,9 @@
 <script>
   window.MathJax = {
     options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
-    loader: { load: ['input/tex', 'output/chtml'] },
-    tex: { inlineMath: [['$', '$']] }
+    loader: { load: ['input/tex', 'output/svg'] },
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
   };
 </script>
 {% endif %}
