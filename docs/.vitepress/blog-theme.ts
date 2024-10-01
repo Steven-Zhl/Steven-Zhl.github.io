@@ -55,7 +55,19 @@ const blogTheme = getThemeConfig({
       avatar: 'https://avatars.githubusercontent.com/u/90168974',
       url: 'https://www.zexnocs.top/',
     }
-  ]
+  ],
+  // Giscus评价系统
+  comment: {
+    type: 'giscus',
+    options: {
+      repo: 'Steven-Zhl/Steven-Zhl.github.io',
+      repoId: 'R_kgDOM530yA',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOM530yM4Ci9HN',
+      inputPosition: 'top'
+    },
+    mobileMinify: true
+  }
 })
 
 export { blogTheme }
