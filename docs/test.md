@@ -4,6 +4,9 @@ description: 这是一篇测试文章，目的在于测试博客的各种功能 
 hidden: true
 date: 2023-07-01 17:00:00
 sticky: 1
+tags:
+  - test
+  - Markdown
 ---
 
 ## Markdown支持
@@ -109,7 +112,7 @@ function fibonacci(n) {
 <script setup>
   import { ref } from 'vue';
   import { ElMessage } from 'element-plus';
-  import MultiLevelMenu from '/public/vue-demos/MultiLevelMenu.vue';
+  import MultiLevelMenu from '/Vue/demo/MultiLevelMenu.vue';
 
   const clickTime = ref(0);
   const onButtonClick = () => {
