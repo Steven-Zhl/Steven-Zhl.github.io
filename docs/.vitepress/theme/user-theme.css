@@ -5,10 +5,10 @@
 html[theme] {
   /* 主题色 */
   --vp-c-user-1: #39C5BB;
-  /* 主题色hover */
-  --vp-c-user-2: #FBD26A;
   /* 主题色2 */
-  --vp-c-user-3: #66CCFF;
+  --vp-c-user-2: #66CCFF;
+  /* 主题色hover */
+  --vp-c-user-3: #FBD26A;
   --vp-c-user-soft: rgba(57, 197, 187, .5);
 }
 
@@ -16,10 +16,10 @@ html[theme] {
 html[theme].dark {
   /* 马尔斯绿 */
   --vp-c-user-1: #01847F;
-  /* 那不勒斯黄 */
-  --vp-c-user-2: #F6C91C;
   /* 克莱因蓝 */
-  --vp-c-user-3: #002FA7;
+  --vp-c-user-2: #002FA7;
+  /* 那不勒斯黄 */
+  --vp-c-user-3: #F6C91C;
   --vp-c-user-soft: rgba(255, 255, 0, .5);
 }
 
