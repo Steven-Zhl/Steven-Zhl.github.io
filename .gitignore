@@ -3,5 +3,6 @@ dist
 cache
 .temp
 .DS_Store
+.idea
 
 package-lock.json
