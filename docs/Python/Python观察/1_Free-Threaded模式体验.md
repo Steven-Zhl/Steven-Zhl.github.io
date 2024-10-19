@@ -9,6 +9,8 @@ tags:
 categories: Python观察
 ---
 
+# [Python观察]1 Free-Threaded模式体验
+
 > 就在前不久(10月7日)，Python团队发布了Python 3.13，可以说很多人对此期盼已久，或者说对“no-GIL模式”（官方称为"free-threaded mode"）期盼已久。那么我们可以上手试一下。
 
 ## 关于该特性
