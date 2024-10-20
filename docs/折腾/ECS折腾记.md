@@ -61,7 +61,7 @@ SSH登录---公钥登录---ECS生成key---将私钥文件下载到本地
 ### 3. VS Code与SSH客户端配置
 
 - 接下来只要配置PC即可了，也更简单一些，我接下来使用VS Code演示。
-- 首先打开你的VS Code，在扩展中找到[**Remote - SSH**](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)扩展并安装，就是下面这个：
+- 首先打开你的VS Code，在扩展中找到[Remote - SSH](#关联阅读)扩展并安装，就是下面这个：
 
 ![Remote - SSH扩展](./ECS_Remote%20-%20SSH扩展.webp)
 
@@ -89,6 +89,61 @@ ssh <user>@<host> -p 22
 
 ## 部署一个静态网站
 
+> 这一节使用nginx部署我的个人网站(基于VitePress)
+
+- 经过上一节的内容，现在你应该可以使用SSH登录到你的远程服务器了。现在假设你已经有了一个静态网站的项目，那么接下来只有2步了
+
+### 1. 将静态网站上传到ECS上
+
+- 如果你稍微了解过一点运维流程的话，你可能知道我要说SFTP或者XShell了，但作为一个非专业运维，这部分的需求应当是一切从简，我再次推荐一个VS Code插件：[SFTP](#关联阅读)。它的功能很强大，配置完之后使用也是很方便的。
+![SFTP插件](ECS_SFTP插件.webp)
+
+- 安装完成后，进入静态网站所在的项目，使用`Ctrl+Shift+P`组合键呼出快捷搜索，输入`SFTP`，找到`SFTP: Config`，它会自动创建一个`sftp.json`，并存储在当前项目的`.vscode`路径下。
+
+:::tip
+如果你的项目使用git同步，那么为了保护隐私，可以把`.vscode`路径添加到`.gitignore`文件中。
+:::
+
+- 随后就是配置这个json文件，默认的模板可能长以下这个样子，但是其实这个模板很多东西是用不到的，只需要以下的这些即可：
+
+```json
+{
+    "name": "My Server",
+    "host": "localhost",
+    "protocol": "sftp",
+    "username": "username",
+    "remotePath": "/"
+}
+```
+
+- 其中，`name`为标识ECS的名字；`host`为ECS的IP或域名；`username`为登录ECS的用户名；`remotePath`为要同步的文件或文件夹在ECS上的路径
+- 以我的VitePress为例，我的用户名为`ecs-user`，想把我的文件放在ECS的用户目录下的`Blog`路径中，那么`username`就是`ecs-user`，`remotePath`就是`/home/ecs-user/Blog/`
+- 但是上述模板还不够，还需要再额外配置一些东西，比如登录方式。如果使用密码登录，需要添加一项`password`，而如果是使用密钥登录，需要添加一项`privateKeyPath`。
+- 还有一点，由于我只需要同步静态文件而非整个项目，它的路径为`<项目路径>/docs/.vitepress/dist`，那么还可以添加一项`context`，填写要同步的子路径。
+- 所以我的配置文件如下所示：
+
+```json
+{
+    "name": "Blog",
+    "host": "1.2.3.4",
+    "protocol": "sftp",
+    "username": "ecs-user",
+    "privateKeyPath": "key.pem",
+    "context": "C:/Users/Steven/My Blog/docs/.vitepress/dist/",
+    "remotePath": "/home/ecs-user/Blog/"
+}
+```
+
+- 这就算配置完成了，那么我们怎么使用呢？只需要在VS Code的资源管理器选项中，在要同步的文件夹上右键，即可看到一些选项，点击"Sync Local -> Remote"即可将本地路径同步到远端。
+- 使用这种同步有很多好处，比如只会同步有修改的文件，不需要SSH连接到ECS，不需要重启任何服务，nginx能够自动应用修改后的网站
+
+![SFTP菜单](ECS_SFTP菜单.webp)
+
+### 2. 配置nginx
+
 ## 使用Cloudflare添加SSL
 
 ## 关联阅读
+
+- [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+- [SFTP](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp)

@@ -3,24 +3,18 @@
 
 /* 浅色模式使用的变量 */
 html[theme] {
-  /* 主题色 */
-  --vp-c-user-1: #39C5BB;
-  /* 主题色2 */
-  --vp-c-user-2: #66CCFF;
-  /* 主题色hover */
-  --vp-c-user-3: #FBD26A;
-  --vp-c-user-soft: rgba(57, 197, 187, .5);
+  --vp-c-user-1: #00635F;
+  --vp-c-user-2: #39C5BB;
+  --vp-c-user-3: #66CCFF;
+  --vp-c-user-soft: #39C5BB;
 }
 
 /* 深色模式使用的变量 */
 html[theme].dark {
-  /* 马尔斯绿 */
-  --vp-c-user-1: #01847F;
-  /* 克莱因蓝 */
-  --vp-c-user-2: #002FA7;
-  /* 那不勒斯黄 */
-  --vp-c-user-3: #F6C91C;
-  --vp-c-user-soft: rgba(255, 255, 0, .5);
+  --vp-c-user-1: #FBD26A;
+  --vp-c-user-2: #01847F;
+  --vp-c-user-3: #002FA7;
+  --vp-c-user-soft: #A3850B;
 }
 
 /* 覆盖默认变量 */
