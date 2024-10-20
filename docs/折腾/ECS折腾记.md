@@ -135,11 +135,73 @@ ssh <user>@<host> -p 22
 ```
 
 - 这就算配置完成了，那么我们怎么使用呢？只需要在VS Code的资源管理器选项中，在要同步的文件夹上右键，即可看到一些选项，点击"Sync Local -> Remote"即可将本地路径同步到远端。
-- 使用这种同步有很多好处，比如只会同步有修改的文件，不需要SSH连接到ECS，不需要重启任何服务，nginx能够自动应用修改后的网站
+- 使用这种同步有很多好处，比如只会同步有修改的文件，不需要SSH连接到ECS，不需要重启任何服务，nginx能够自动应用修改后的网站。
 
 ![SFTP菜单](ECS_SFTP菜单.webp)
 
 ### 2. 配置nginx
+
+> nginx是一个轻量的Web服务器，开源，功能强大，配置相对简单，对于一个小型的个人博客来说它是很合适的选择。
+
+- 现在假设ECS服务器上已经有你的静态网站了。首先，对你的网站内容设置一次权限，以免nginx无法访问：
+
+```shell
+chmod -R 755 /home/ecs-user/Blog/ # 递归地将Blog文件夹及其子文件夹的权限设置为755
+```
+
+- 然后，安装nginx，以Debian/Ubuntu为例，执行如下命令，nginx就会自动安装并启动相关服务
+
+```shell
+sudo apt install nginx
+```
+
+- 随后，我们需要配置nginx，它的配置文件是`/etc/nginx/nginx.conf`，但我不太建议直接修改根配置文件，更好的方式是在`/etc/nginx/sites-available/`下创建一个新的配置文件，然后在`/etc/nginx/sites-enabled/`下创建一个软链接，这样可以更好地管理多个app的配置。
+- VitePress官网给出了一个[nginx配置示例](https://vitepress.dev/zh/guide/deploy#nginx)，我就直接拿来，修改一下`root`即可使用了。你也可以参考一下`/etc/nginx/sites-enabled/default`的配置，它是nginx的默认配置文件。
+- 以我的VitePress为例，我的配置文件如下：
+
+```nginx
+server {
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    listen 80;
+    server_name _;
+    index index.html;
+
+    location / {
+        # content location
+        root /home/ecs-user/Blog/;
+
+        # exact matches -> reverse clean urls -> folders -> not found
+        try_files $uri $uri.html $uri/ =404;
+
+        # non existent pages
+        error_page 404 /404.html;
+
+        # a folder without index.html raises 403 in this setup
+        error_page 403 /404.html;
+
+        # adjust caching headers
+        # files in the assets folder have hashes filenames
+        location ~* ^/assets/ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+    }
+}
+```
+
+- 将该文件放在`/etc/nginx/sites-available/`下，然后在`/etc/nginx/sites-enabled/`下创建一个软链接即可。你可以在终端通过`nginx -t`命令检查是否有语法错误或者冲突，如果没有的话，就可以重启nginx服务了。
+
+:::tip
+`/etc/nginx/sites-enabled/default`已经是一个服务了，并且`server_name`是`_`，而很多网上给出的示例中`server_name`也是`_`，这可能会导致一些问题。所以在你的配置文件中，最好手动将`server_name`改一个不会冲突的名字，或者干脆删除掉`default`。
+:::
+
+```shell
+sudo systemctl restart nginx # 重启nginx服务
+```
+
+- 此时，通过ECS的公网IP即可访问你的网站了，如果有域名的话，记得在域名解析中添加一条A记录，指向你的ECS的公网IP或CDN即可。
 
 ## 使用Cloudflare添加SSL
 
@@ -147,3 +209,6 @@ ssh <user>@<host> -p 22
 
 - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 - [SFTP](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp)
+- [SFTP配置公钥至受信任列表,提供外部访问_sftp public key-CSDN博客](https://blog.csdn.net/dwyane__wade/article/details/79223135)
+- [Nginx配置文件详解 - 程序员自由之路 - 博客园](https://www.cnblogs.com/54chensongxia/p/12938929.html)
+- [部署 VitePress 站点 | VitePress](https://vitepress.dev/zh/guide/deploy#nginx)
