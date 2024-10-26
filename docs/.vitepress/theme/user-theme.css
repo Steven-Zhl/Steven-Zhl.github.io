@@ -1,6 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css');
 /* 所有变量：https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
-/* 自定义主题色示例，如下 */
 
 /* 浅色模式使用的变量 */
 html[theme] {
@@ -25,4 +24,13 @@ html[theme].dark {
   --vp-c-brand-2: var(--vp-c-user-2);
   --vp-c-brand-3: var(--vp-c-user-3);
   --vp-c-brand-soft: var(--vp-c-user-soft);
+}
+
+/* PATCH: 覆盖原始样式中右侧因为Tag较多导致的页面变形 */
+div.card.tags {
+  max-height: 400px;
+}
+
+div.card.tags ul.tag-list {
+  overflow: auto;
 }
