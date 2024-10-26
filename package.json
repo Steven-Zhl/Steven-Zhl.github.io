@@ -4,6 +4,7 @@
   "private": true,
   "author": "Steven-Zhl",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",

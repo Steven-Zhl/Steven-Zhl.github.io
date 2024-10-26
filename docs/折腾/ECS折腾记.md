@@ -8,7 +8,7 @@ tags:
   - ECS
   - Cloudflare
   - 阿里云
-categories: 折腾
+categories: [折腾]
 ---
 
 # [折腾]ECS折腾记

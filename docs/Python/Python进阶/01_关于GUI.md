@@ -6,7 +6,7 @@ tags:
   - Python
   - tkinter
   - PyQt/PySide
-categories: Python进阶
+categories: [Python进阶]
 ---
 
 # [Python进阶]1 关于GUI

@@ -48,7 +48,8 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: '首页', link: '/' },
-      { text: '关于', link: '/about.html' }
+      { text: '关于', link: '/about.html' },
+      { text: '归档', link: '/archive.html' },
     ],
     socialLinks: [
       {

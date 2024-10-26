@@ -6,7 +6,7 @@ tags:
   - Python
   - GIL
   - 多线程
-categories: Python观察
+categories: [Python观察]
 ---
 
 # [Python观察]1 Free-Threaded模式体验
