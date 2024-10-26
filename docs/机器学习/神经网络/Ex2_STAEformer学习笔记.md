@@ -113,7 +113,7 @@ def root_mean_squared_error(y_true, y_pred, *, sample_weight=None, multioutput="
 
 ### 1.3 Transformer
 
-* 在看这一篇论文之前，你应当了解过Transformer，知道一些该类模型的基本原理。不熟的话，可以看看之前我的另一篇[Transformer笔记](/机器学习/2023/06/24/机器学习10_Transformer.html)
+* 在看这一篇论文之前，你应当了解过Transformer，知道一些该类模型的基本原理。不熟的话，可以看看之前我的另一篇[Transformer笔记](/机器学习/神经网络/04_Transformer.html)
 
 > 原始论文可以在arXiv<sup>[[4]](#reference)</sup>上找到。
 >
