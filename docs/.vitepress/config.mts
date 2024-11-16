@@ -45,7 +45,7 @@ export default defineConfig({
     lastUpdatedText: '上次更新于',
 
     // 设置logo
-    logo: '/logo.png',
+    logo: '/logo.webp',
     nav: [
       { text: '首页', link: '/' },
       { text: '关于', link: '/about.html' },

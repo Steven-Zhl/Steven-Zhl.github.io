@@ -10,7 +10,7 @@ const RSS: Theme.RSSOptions = {
   copyright: 'Copyright (c) 2023-2024, Steven-Zhl',
   description: '我思故我在',
   language: 'zh-CN',
-  image: 'https://Steven-Zhl.github.io/logo.png',
+  image: 'https://Steven-Zhl.github.io/logo.webp',
   favicon: 'https://Steven-Zhl.github.io/favicon.ico',
 }
 
