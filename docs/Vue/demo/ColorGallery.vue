@@ -3,11 +3,12 @@ import { ref, onMounted } from 'vue';
 import { ElNotification } from 'element-plus';
 import ColorCard from './ColorCard.vue';
 
+/**
+ * 计算相对亮度
+ * https://zh.wikipedia.org/wiki/Relative_luminance
+ * @param color 16进制的颜色值
+ */
 const luminosity = (color: number): number => { // 计算颜色的亮度
-    /**
-     * 计算相对亮度
-     * https://zh.wikipedia.org/wiki/Relative_luminance
-     */
     const r = (color >> 16) & 0xff;
     const g = (color >> 8) & 0xff;
     const b = color & 0xff;

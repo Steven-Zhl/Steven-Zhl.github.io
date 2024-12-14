@@ -12,7 +12,7 @@ const titleText = computed(() => props.title || colorCss.value);
 
 const onClick = (color: string) => {
     navigator.clipboard.writeText(color).then(() => {
-        ElMessage.success(`已复制颜色值 ${color} 到剪贴板`)
+        ElMessage.success(`已复制到剪贴板！`)
     }).catch(() => {
         ElMessage.error('复制失败，当前浏览器不支持')
     })
