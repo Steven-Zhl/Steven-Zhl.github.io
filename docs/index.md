@@ -7,7 +7,6 @@ blog:
  inspiring:
   - 道阻且长，行则将至
   - 在重复的岁月里，对得起每一寸光阴
-  - 团结、紧张、严肃、活泼
  # 设置 inspiringTimeout 可以实现自动切换
  inspiringTimeout: 6000
  pageSize: 10
