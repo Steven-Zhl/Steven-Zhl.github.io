@@ -1,3 +1,3 @@
-# Steven-Zhl.github.io
+# Cool VitePress Theme
 
-An instance as my blog from [@sugarat/theme](https://theme.sugarat.top)
+> 兴趣使然而创造的一个 VitePress 主题，同时试玩无头组件库([shadcn/vue](https://www.shadcn-vue.com/))

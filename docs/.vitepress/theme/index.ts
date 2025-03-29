@@ -1,22 +1,14 @@
-import BlogTheme from "@sugarat/theme";
-
-// 引入 Element Plus
-import ElementPlus from "element-plus";
-import "element-plus/dist/index.css";
-import * as ElementPlusIconsVue from "@element-plus/icons-vue";
-
-// 自定义样式重载
-import "./style.scss";
-
-// 自定义主题色
-import "./user-theme.css";
+// https://vitepress.dev/guide/custom-theme
+import { h } from 'vue'
+import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import './style.css'
+import './tailwind.css'
+import Layout from "./Layout.vue";
 
 export default {
-  ...BlogTheme,
-  enhanceApp({ app }) {
-    app.use(ElementPlus);
-    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-      app.component(key, component);
-    }
-  },
-};
+  Layout,
+  enhanceApp({ app, router, siteData }) {
+    // ...
+  }
+}

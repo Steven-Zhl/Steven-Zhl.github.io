@@ -1,9 +1,7 @@
+docs/.vitepress/dist
+docs/.vitepress/cache
 node_modules
-dist
-cache
-.temp
-.DS_Store
+package-lock.json
+
 .idea
 .vscode
-
-package-lock.json
