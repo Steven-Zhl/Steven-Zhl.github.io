@@ -1,12 +1,14 @@
 <script setup>
-import {Content, useData} from "vitepress";
+import { Content, useData } from "vitepress";
 
-const {page} = useData();
+const { page } = useData();
 </script>
 
 <template>
-  <div class="flex flex-row" style="border: 1px solid red">
-    213
+  <div class="py-10 px-10 flex flex-row justify-center items-center" style="border: 1px solid red;">
+    <h1>Custom Layout!</h1>
+
+    <v-btn>test button</v-btn>
   </div>
   <h1>Custom Layout!</h1>
 
@@ -14,9 +16,7 @@ const {page} = useData();
     Custom 404 page!
   </div>
 
-  <Content/>
+  <Content />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
