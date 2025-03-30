@@ -2,6 +2,7 @@
 title: About me
 description: 人生如逆旅，我亦是行人。
 hidden: true
+date: 2023-12-24 00:00:00
 ---
 
 ::: timeline 2023-12-24

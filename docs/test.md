@@ -1,9 +1,10 @@
 ---
 title: 测试页面
 description: 这是一篇测试文章，目的在于测试博客的各种功能 | This is a test article, which is used to test the functions of the blog.
-hidden: true
+hidden: false
 date: 2023-07-01 17:00:00
 sticky: 1
+cover: default.webp
 tags:
   - test
   - Markdown
@@ -47,7 +48,7 @@ class Me:
 
 [外部链接](https://www.bilibili.com)
 
-![图片](/public/assets/default_cover.webp "测试图片")
+![图片](default.webp "测试图片")
 
 ### 扩展Markdown语法
 
@@ -111,16 +112,15 @@ function fibonacci(n) {
 
 <script setup>
   import { ref } from 'vue';
-  import { ElMessage } from 'element-plus';
-  import MultiLevelMenu from '/Vue/demo/MultiLevelMenu.vue';
 
   const clickTime = ref(0);
+  const ifShowMessage =ref(false);
   const onButtonClick = () => {
     clickTime.value++;
   }
 
-  const onElButtonClick = () => {
-    ElMessage.success('这是一条消息');
+  const onVuetifyButtonClick = () => {
+    ifShowMessage.value=true;
   }
 
   const demoApiData = ref([{
@@ -157,10 +157,12 @@ function fibonacci(n) {
   You clicked {{clickTime}} times
 </button>
 
-### 第三方库(Element Plus)组件
+### 第三方库(Vuetify)组件
 
-<el-button @click="onElButtonClick">显示一条消息</el-button>
+<v-btn @click="onVuetifyButtonClick">显示一条消息</v-btn>
+
+<v-snackbar v-model="ifShowMessage">
+  这是一条消息
+</v-snackbar>
 
 ### 自定义组件
-
-<MultiLevelMenu :router-list="demoApiData" />
