@@ -4,6 +4,8 @@ description: "经过一段时间的开发，结合官方文档和其他资料给
 tags:
   - Vue
   - Vue3
+date: 2025-05-15 00:00:00
+categories: [Vue]
 ---
 
 # [Vue]我的Vue3项目开发规范

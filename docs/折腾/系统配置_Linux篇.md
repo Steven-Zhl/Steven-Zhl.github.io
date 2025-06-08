@@ -5,6 +5,7 @@ tags:
   - Linux
   - EndeavourOS
 categories: [折腾]
+date: 2025-05-23 00:00:00
 ---
 
 > 这篇文章记录一下Linux的个性化配置，一切都是为了更方便、更好用。

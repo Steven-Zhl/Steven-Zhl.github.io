@@ -4,6 +4,7 @@ description: 虽然大家总是在吐槽Windows，但这不妨碍它在PC中的�
 tags:
   - Windows
 categories: [折腾]
+date: 2025-03-29 00:00:00
 ---
 
 > 记录一下Windows下的个性化配置
