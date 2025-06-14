@@ -1,17 +1,17 @@
 ---
-title: "[AI应用]Dify"
+title: "[AI开发]2 Dify"
 description: Dify应该是目前LLM结合应用做的最好的一个，开源、自带docker支持、内置多种AI应用的模板、支持插件和API调用、官方文档也写的很完善，可以说已经非常成熟了。
 tags:
   - LLM
-  - Dify
   - 工作流
   - Docker
+  - Agnet
   - RAG
-categories: [AI应用]
+categories: [AI开发]
 date: 2025-05-27 12:00:00
 ---
 
-# [AI应用]Dify
+# [AI开发]2 Dify
 
 [![Dify.ai](https://socialify.git.ci/langgenius/dify/image?language=1&owner=1&name=1&stargazers=1&theme=Light)](https://dify.ai)
 
@@ -23,7 +23,27 @@ date: 2025-05-27 12:00:00
 
 ### 安装 Docker (docker engine) 和Docker Compose
 
-- 用包管理器安装（`sudo apt install docker docker-compose`/`sudo pacman -S docker docker-compose`）或下载官方二进制文件离线安装（见二进制安装<sup>[[2]](#references)</sup>）
+1. Ubuntu/Debian：用包管理器简单方便：
+
+```bash
+sudo apt install docker docker-compose
+```
+
+2. Arch Linux/Manjaro/EndeavourOS：同样是包管理器安装：
+
+```bash
+sudo pacman -S docker docker-compose
+```
+
+3. CentOS 7（毕竟还有不少老服务器在用CentOS 7）：
+
+```bash
+sudo yum install -y yum-utils && sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo # 添加阿里云的源
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin # 用包管理器安装
+```
+
+4. 下载官方二进制文件离线安装（见二进制安装<sup>[[2]](#references)</sup>）
+
 - 在安装完成后，可以配置是否允许非root用户启动（见安装后步骤<sup>[[3]](#references)</sup>），或是否开机启动。docker的关联服务主要是`docker.service`和`containerd.service`，但有的时候`docker.socket`可能无法正常启动。因此如果要开机启动，可以执行以下命令：
 
 ```bash
@@ -68,6 +88,10 @@ nginx:
 ![Dify_AI应用界面](./Dify/AI应用界面.png)
 
 ![Dify_AI应用分类](./Dify/AI应用分类.jpg)
+
+> 注意，上图仅适应于Dify语境下的AI应用，尤其是Agent与一般意义上的Agent有较大区别。在当下，一般理解的Agent并不局限于对话框，而是一种可以自主规划、调度、执行的对象，实际能力已经等同于工作流了，甚至在某些比较强的LLM加持下，能发挥出比工作流更高的灵活度和准确性，同时响应速度也保持在较快的水平。
+>
+> 我目前认为Agent和工作流还不存在高低之分，各有优劣。Agent更灵活，无需预先编排流程，更加符合对“智能”的想象，但是这依赖于更强大的基础模型，以及总有可能遇到错误理解或处理的情况。工作流更稳定，更方便调试和可视化，但是需要预先编排流程，仍然需要一定的工作量，但Dify显著降低了这部分的开发成本。
 
 ### 文本生成类
 

@@ -5,7 +5,7 @@ date: 2024-10-19 18:33:00
 tags:
   - Linux
   - Nginx
-  - ECS
+  - 服务器
   - Cloudflare
   - 阿里云
 categories: [折腾]
