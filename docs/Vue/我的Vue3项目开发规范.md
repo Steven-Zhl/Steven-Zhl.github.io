@@ -3,7 +3,6 @@ title: "[Vue]我的Vue3项目开发规范"
 description: "经过一段时间的开发，结合官方文档和其他资料给出的最佳实践，整理了一份我用着最舒服的开发规范"
 tags:
   - Vue
-  - Vue3
 date: 2025-05-15 00:00:00
 categories: [Vue]
 ---
