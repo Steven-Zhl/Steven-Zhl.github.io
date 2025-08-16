@@ -9,7 +9,7 @@ import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import "./style.scss";
 
 // 自定义主题色
-import "./user-theme.css";
+import "./user-theme.scss";
 
 export default {
   ...BlogTheme,

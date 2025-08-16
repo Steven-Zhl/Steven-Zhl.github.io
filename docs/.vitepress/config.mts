@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-
 // 导入主题的配置
 import { blogTheme } from './blog-theme'
 // 导入搜索插件
@@ -16,9 +15,9 @@ import { chineseSearchOptimize, pagefindPlugin } from 'vitepress-plugin-pagefind
 // 详见文档：https://vitepress.dev/reference/site-config
 export default defineConfig({
   vite: {
-    plugins: [pagefindPlugin({
-      customSearchQuery: chineseSearchOptimize
-    })]
+    plugins: [
+      pagefindPlugin({ customSearchQuery: chineseSearchOptimize })
+    ]
   },
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
@@ -30,8 +29,10 @@ export default defineConfig({
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    // ['link', { rel: 'icon', href: `${base}favicon.ico` }], // 修改了 base 这里也需要同步修改
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: '' }],
+    ['link', { rel: 'preload', as: 'style', href: 'https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css' }], // 预加载字体 CSS
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css' }] // 正式加载字体 CSS
   ],
   themeConfig: {
     // 展示 2,3 级标题在目录中

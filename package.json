@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@sugarat/theme": "^0.5.4",
     "element-plus": "^2.8.4",
     "vitepress-plugin-pagefind": "^0.4.10",
     "vue": "^3.5.13"
@@ -21,6 +20,7 @@
     "doc": "docs"
   },
   "devDependencies": {
+    "@sugarat/theme": "^0.5.6",
     "markdown-it-mathjax3": "^4.3.2",
     "pagefind": "^1.1.1",
     "sass": "^1.76.0",

@@ -51,8 +51,8 @@ const blogTheme = getThemeConfig({
   friend: [
     {
       nickname: '蒟蒻zExNocs',
-      des: 'Man who like fishing.',
-      avatar: 'https://avatars.githubusercontent.com/u/90168974',
+      des: '一个喜欢摸鱼的人。\n去码头整点薯条。',
+      avatar: 'https://avatars.githubusercontent.com/u/90168974?size=50',
       url: 'https://www.zexnocs.top/',
     }
   ],

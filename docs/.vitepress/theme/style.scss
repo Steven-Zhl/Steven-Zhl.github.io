@@ -1,9 +1,9 @@
 .VPHome {
   // 定义遮罩样式
   background: radial-gradient(
-    ellipse,
-    rgba(var(--bg-gradient-home), 0.75) 0%,
-    rgba(var(--bg-gradient-home), 0) 150%
+                  ellipse,
+                  rgba(var(--bg-gradient-home), 0.75) 0%,
+                  rgba(var(--bg-gradient-home), 0) 150%
   );
 
   // 自定义首页背景图
@@ -11,5 +11,20 @@
     // 图片来源：https://unsplash.com/photos/snowy-mountain-g30P1zcOzXo
     background-image: url(./assets/bg.webp);
     background-size: cover;
+  }
+}
+
+// 自定义字体
+.citation-font {
+  font-size: 18px;
+  font-family: "LXGW WenKai Screen";
+  font-display: swap;
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-lg {
+    font-size: 20px;
   }
 }
