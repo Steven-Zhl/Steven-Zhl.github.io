@@ -5,7 +5,7 @@ tags:
   - LLM
   - 工作流
   - Docker
-  - Agnet
+  - Agent
   - RAG
 categories: [AI开发]
 date: 2025-05-27 12:00:00
