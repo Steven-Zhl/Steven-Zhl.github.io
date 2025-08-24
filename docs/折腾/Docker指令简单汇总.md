@@ -1,0 +1,3 @@
+- `docker stat`：查看容器的资源使用情况。
+- `docker stat --no-stream`：查看容器的资源使用情况（不持续更新）。
+- `docker top`：查看容器内运行的进程。
